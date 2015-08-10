@@ -1,0 +1,20 @@
+<package>
+  <name>tobi_navigation</name>
+  <description>
+     ToBI 2D Navigation Configuration
+  </description>
+  <author>lziegler, prenner, pdressel</author>
+  <version>1.0.0</version>
+  <license>BSD</license>
+  <maintainer email="lziegler@techfak.uni-bielefeld.de">Leon Ziegler</maintainer>
+  
+  <run_depend>p2os_driver</run_depend>
+  <run_depend>kinect_camera</run_depend>
+  <run_depend>sicktoolbox_wrapper</run_depend>
+  <run_depend>move_base</run_depend>
+  <run_depend>map_server</run_depend>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+</package>
+
+

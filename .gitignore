@@ -26,3 +26,15 @@
 *.exe
 *.out
 *.app
+
+# Catkin
+catkin_generated
+
+# CMake
+CMakeFiles
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+
+# General
+*~

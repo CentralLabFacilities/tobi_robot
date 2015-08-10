@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="kinect_frame_prefix" default="/kinect_rgb_optical_frame" />
+  <arg name="kinect_camera_name" default="kinect" />
+
+  <!-- drop frames to speed things up; the Kinect publishes at 30 Hz, which is way too much
+       for the collision map, so drop 9 out of 10 frames -->
+  <param name="/$(arg kinect_camera_name)/driver/data_skip" value="10" />
+
+  <!-- self filter kinect point cloud -->
+  <node pkg="robot_self_filter" type="self_filter" respawn="true" name="self_filter" output="screen">
+
+    <!-- The topic for the input cloud -->
+    <remap from="cloud_in" to="/$(arg kinect_camera_name)/depth_registered/points" />
+
+    <!-- The topic for the output cloud -->
+    <remap from="cloud_out" to="/$(arg kinect_camera_name)/depth_registered/points_filtered" />
+
+    <!-- The frame of the sensor used to obtain the data to be
+       filtered; This parameter is optional. If it is not specified,
+       shadow points will be considered outside -->
+    <param name="sensor_frame" type="string" value="$(arg kinect_frame_prefix)" />
+
+    <param name="subsample_value" type="double" value=".01"/>
+
+    <rosparam command="load" file="$(find tobi_bringup)/config/tobi_xtion_self_filter.yaml" />
+  </node>
+
+  <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager" output="screen" respawn="true"/>
+
+  <!-- Run a passthrough filter to clean NaNs -->
+  <node pkg="nodelet" type="nodelet" name="passthrough" args="load pcl/PassThrough pcl_manager" output="screen" respawn="true">
+    <remap from="~input" to="/kinect/depth_registered/points_filtered" />
+    <remap from="~output" to="/kinect/depth_registered/points_filtered_cut_floor" />
+    <rosparam>
+      input_frame: base_footprint
+      output_frame: kinect_rgb_optical_frame
+      filter_field_name: z
+      filter_limit_min: 0.15
+      filter_limit_max: 2.0
+      filter_limit_negative: False
+    </rosparam>
+  </node>
+</launch>

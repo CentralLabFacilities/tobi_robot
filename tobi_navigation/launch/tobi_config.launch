@@ -1,0 +1,55 @@
+<launch>
+    <!-- run rosaria to control the pioneer -->
+    <node pkg="rosaria" type="RosAria" name="RosAria" respawn="true" output="screen">
+        <remap from="/RosAria/cmd_vel" to="/cmd_vel" />
+        <param name="port" type="string" value="/dev/robotbase" />
+    </node>
+
+    <!-- static transform -->
+    <arg name="pi" value="3.14159265"/>
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_virtual" args=" 0     0 0.1397 0 0         0 base_link laser_virtual 100" />
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_front"   args=" 0     0 0.1397 0 0 $(arg pi) base_link laser_front 100" />
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_rear"    args="-0.290 0 0.1397 0 $(arg pi) 0 base_link laser_rear 100" />
+
+    <!-- sick laser -->
+    <node pkg="sicktoolbox_wrapper" respawn="true" type="sicklms" name="sicklms_node" output="screen" >
+        <param name="port" type="string" value="/dev/sicklaser" />
+        <param name="baud" type="int" value="500000" />
+        <param name="inverted" type="bool" value="false" />
+        <param name="frame_id" type="string" value="laser_front"/>
+        <param name="angle" type="int" value="180"/>
+        <param name="resolution" type="double" value="0.5"/>
+    </node>
+
+    <!-- hokuyo laser -->
+    <node name="hokuyo" pkg="hokuyo_node" type="hokuyo_node" respawn="true" output="screen">
+        <remap from="scan" to="scan_rear"/>
+        <param name="calibrate_time" type="bool" value="false"/>
+        <param name="port" type="string" value="/dev/ttyACM0"/>
+        <param name="intensity" type="bool" value="false"/>
+        <param name="frame_id" type="string" value="laser_rear"/>
+        <param name="min_ang" type="double" value="-1.83"/><!-- -pi/2 = -1.5708-->
+        <param name="max_ang" type="double" value="1.83"/><!-- pi/2 = 1.5708-->
+    </node>
+
+    <node pkg="laser_filters" respawn="true" type="scan_to_scan_filter_chain" name="laser_filter">
+        <rosparam command="load" file="$(find tobi_navigation)/config/laser_config_ownfilter.yaml" />
+        <param name="tf_message_filter_target_frame" type="string" value="laser_front" />
+    </node>
+
+    <!-- laser merger -->
+    <node pkg="ira_laser_tools" respawn="true" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen">
+        <param name="destination_frame" value="/laser_virtual"/>
+        <param name="cloud_destination_topic" value="/cloud_merged"/>
+        <param name="scan_destination_topic" value="/scan_merged"/>
+        <param name="laserscan_topics" value ="/scan_filtered /scan_rear" />
+        <param name="angle_min" type="double" value="-3.14" /> <!-- angle in rad -->
+        <param name="angle_max" type="double" value="3.14" /> <!-- angle in rad -->
+        <param name="angle_increment" type="double" value="0.00873" /> <!-- angle in rad. 0.00873rad=0.5degree -->
+        <param name="time_increment" type="double" value="0.0" /> <!-- Time increment of the output scan -->
+        <param name="scan_time" type="double" value="0.033333333" /> <!-- Scan time of the output scan -->
+        <param name="range_min" type="double" value="0.1" /> <!-- Range min of the output scan -->
+        <param name="range_max" type="double" value="10.0" /> <!-- Range max of the output scan. This must be greater than gmapping.maxRange! Because this value will be set for invalid readings.  -->
+    </node>
+
+</launch>

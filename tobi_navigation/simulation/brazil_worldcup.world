@@ -1,0 +1,209 @@
+# simple.world - basic world file example
+# Authors: Richard Vaughan
+# $Id$
+
+include "map.inc"
+include "sick.inc"
+include "pioneer.inc"
+include "leg.inc"
+include "furniture.inc"
+
+# time to pause (in GUI mode) or quit (in headless mode (-g)) the simulation
+quit_time 3600 # 1 hour of simulated time
+
+paused 0
+
+resolution 0.05
+
+interval_sim 100  # simulation timestep in milliseconds
+
+# configure the GUI window
+window
+(
+  size [ 811 719 ] # in pixels
+  scale 36.299   # pixels per meter
+  center [ 1.144 0.651 ]
+  rotate [ 12.000  540.000 ]
+  			
+  show_data 1              # 1=on 0=off
+)
+ 
+# load an environment bitmap
+floorplan
+( 
+  name "arena"
+  size [30.400 35.200 1.000]
+  pose [0.000 0.000 0.000 0.000]
+  bitmap "maps/brazil_worldcup.pgm"
+)
+
+patrolbot
+(		  
+  # can refer to the robot by this name
+  name "ToBI"
+  pose [ 0.18 7.83 0.000 0 ] 
+)
+
+
+#create doors
+
+door
+(
+name "door0"
+color "red"
+pose [0.98 6.95 0.000 91.77]
+)
+
+door
+(
+name "door1"
+color "red"
+pose [1.02 0.07 0.000 88.90]
+)
+
+
+bed
+(
+name "bed0"
+color "grey"
+pose [6.59 -0.49 0.000 -90]
+size [2.000 0.900 0.800]
+)
+
+sofa
+(
+name "sofa0"
+color "grey"
+pose [7.07 7.96 0.000 0]
+size [1.900 0.800 1.000]
+)
+#create persons
+person
+(
+name "person0"
+color "red"
+pose [-1.58 4.84 0.000 -88.81]
+)
+
+person
+(
+name "person1"
+color "green"
+pose [-1.58 5.34 0.000 -88.81]
+)
+
+person
+(
+name "person2"
+color "yellow"
+pose [-1.58 5.84 0.000 -88.81]
+)
+
+
+desk
+(
+name "table0"
+color "grey"
+pose [5.74 -1.06 0.000 90]
+size [0.400 0.600 0.400]
+)
+
+desk
+(
+name "table1"
+color "grey"
+pose [7.450 -1.040 0.000 90]
+size [0.400 0.600 0.400]
+)
+
+desk
+(
+name "desk0"
+color "grey"
+pose [-2.36 2.2 0.000 1.19]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk1"
+color "grey"
+pose [-2.36 2.2 0.000 1.19]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk2"
+color "grey"
+pose [-2.36 2.2 0.000 1.19]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk3"
+color "grey"
+pose [-2.36 2.2 0.000 1.19]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk4"
+color "grey"
+pose [-2.36 2.2 0.000 1.19]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk5"
+color "grey"
+pose [-2.36 2.2 0.000 1.19]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk6"
+color "grey"
+pose [-2.36 2.2 0.000 1.19]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk7"
+color "grey"
+pose [-2.36 2.2 0.000 1.19]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk8"
+color "grey"
+pose [-2.36 2.2 0.000 1.19]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk9"
+color "grey"
+pose [-2.36 2.2 0.000 1.19]
+size [1.300 0.600 0.400]
+)
+
+
+desk
+(
+name "lunch"
+color "grey"
+pose [6.51 3.53 0.000 -90]
+size [0.300 0.400 0.700]
+)
+
+
+

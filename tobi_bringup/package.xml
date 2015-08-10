@@ -1,0 +1,21 @@
+<package>
+  <name>tobi_bringup</name>
+  <version>0.1.0</version>
+  <description>
+    Config and launch files to start the ToBi's hardware.
+  </description>
+
+  <author email="lziegler@techfak.uni-bielefeld.de">Leon Ziegler</author>
+  <maintainer email="lziegler@techfak.uni-bielefeld.de">Leon Ziegler</maintainer>
+  <license>BSD</license>
+  <url></url>
+
+  <run_depend>tobi_description</run_depend>
+  <run_depend>katana</run_depend>
+  <run_depend>laser_filters</run_depend>
+  <run_depend>openni_launch</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>
+

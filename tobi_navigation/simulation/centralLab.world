@@ -1,0 +1,215 @@
+# simple.world - basic world file example
+# Authors: Richard Vaughan
+# $Id$
+
+include "map.inc"
+include "sick.inc"
+include "pioneer.inc"
+include "leg.inc"
+include "furniture.inc"
+
+# time to pause (in GUI mode) or quit (in headless mode (-g)) the simulation
+quit_time 3600 # 1 hour of simulated time
+
+paused 0
+
+resolution 0.05
+
+interval_sim 100  # simulation timestep in milliseconds
+
+# configure the GUI window
+window
+(
+  size [ 811 719 ] # in pixels
+  scale 36.299   # pixels per meter
+  center [ 1.144 0.651 ]
+  rotate [ 12.000  540.000 ]
+  			
+  show_data 1              # 1=on 0=off
+)
+ 
+# load an environment bitmap
+floorplan
+( 
+  name "arena"
+  size [20.000 25.000 1.000]
+  pose [0.000 0.000 0.000 0.000]
+  bitmap "maps/centralLab.pgm"
+)
+
+patrolbot
+(		  
+  # can refer to the robot by this name
+  name "ToBI"
+  pose [ -2.433 -2.076 0.000 -88.782 ] 
+)
+
+
+#create doors
+
+door
+(
+name "door0"
+color "red"
+pose [2.168 2.500 0.000 -168.059]
+)
+
+
+#create persons
+person
+(
+name "person0"
+color "red"
+pose [-3.844 -4.986 0.000 166.158]
+)
+
+person
+(
+name "person1"
+color "green"
+pose [-2.009 -4.666 0.000 25.783]
+)
+
+person
+(
+name "person2"
+color "yellow"
+pose [1.947 -5.992 0.000 -88.808]
+)
+
+person
+(
+name "person3"
+color "blue"
+pose [0.947 -4.992 0.000 -88.808]
+)
+
+
+desk
+(
+name "table0"
+color "grey"
+pose [-3.910 -0.207 0.000 -156.371]
+size [0.500 0.500 0.400]
+)
+
+desk
+(
+name "table1"
+color "grey"
+pose [-3.352 0.033 0.000 -156.371]
+size [0.500 0.500 0.400]
+)
+
+desk
+(
+name "desk0"
+color "grey"
+pose [-0.226 -4.297 0.000 1.192]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk1"
+color "grey"
+pose [1.364 -4.285 0.000 -178.326]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk2"
+color "grey"
+pose [1.361 -3.736 0.000 1.192]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk3"
+color "grey"
+pose [-0.206 -3.672 0.000 1.192]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk4"
+color "grey"
+pose [1.363 -0.837 0.000 1.192]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk5"
+color "grey"
+pose [-0.111 -0.867 0.000 1.192]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk6"
+color "grey"
+pose [1.387 -0.161 0.000 1.192]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk7"
+color "grey"
+pose [-0.159 -0.177 0.000 1.192]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk8"
+color "grey"
+pose [-1.430 3.819 0.000 90.000]
+size [1.300 0.600 0.400]
+)
+
+desk
+(
+name "desk9"
+color "grey"
+pose [-4.301 -6.360 0.000 -13.132]
+size [1.300 0.600 0.400]
+)
+
+
+sofa
+(
+name "armchair"
+color "grey"
+pose [-3.768 0.675 0.000 24.110]
+size [0.500 0.500 0.600]
+)
+
+roundtable
+(
+name "roundtable0"
+color "grey"
+pose [-4.395 -1.495 0.000 31.741]
+size [0.800 0.800 0.700]
+)
+
+rack
+(
+name "rack0"
+color "red"
+pose [-4.666 0.897 0.000 -89.518]
+size [2.000 0.400 1.800]
+)
+
+rack
+(
+name "rack1"
+color "red"
+pose [0.309 2.521 0.000 -1.648]
+size [2.000 0.100 1.800]
+)

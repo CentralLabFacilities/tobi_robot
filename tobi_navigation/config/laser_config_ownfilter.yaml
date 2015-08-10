@@ -1,0 +1,31 @@
+scan_filter_chain:
+- name: range
+  type: LaserScanRangeFilter
+  params:
+    lower_threshold: 0.3
+    upper_threshold: .inf
+#- name: specific_angle_filter
+#  type: SpecificAngleFilter
+##  params:
+#    lower_angle1: 1.38
+#    upper_angle1: 1.43
+#    lower_angle2: -1.43
+#    upper_angle2: -1.38
+# The scan shadows filter seems to cause 100% CPU and no ouput of laser_filters
+#- name: shadows
+#  type: ScanShadowsFilter
+#  params:
+#    min_angle:10
+#    max_angle:170
+#    neighbours:20 # maybe this must be lower for our setup?
+#    window:1
+#- name: footprint_filter
+#  type: LaserScanFootprintFilter
+#  params:
+#    inscribed_radius: 0.24
+#- name: interpolation
+#  type: InterpolationFilter
+#- name: timestamp_corrector
+#  type: TimestampCorrector
+#  params:
+#    timestamp_offset: -0.2
