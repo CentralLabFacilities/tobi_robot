@@ -495,9 +495,7 @@ define patrolbot_base pioneer2dx_base_no_sonar
     z [ 1.01 1.3 ]
   )
 
-  sicklaser(   
-      pose [0.037 0.0 -1.2 0] 
-  )
+  sicksensor(pose [0.037 0.0 -1.2 0])
 )
 
 define patrolbot patrolbot_base

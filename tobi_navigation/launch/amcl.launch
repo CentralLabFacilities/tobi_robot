@@ -3,7 +3,7 @@
     <arg name="topic_scan" />
 
     <node pkg="amcl"  type="amcl" name="amcl" respawn="true">
-        <remap from="scan" to="$(arg topic_scan)"/>
+        <remap from="/scan" to="$(arg topic_scan)"/>
         <!-- Publish scans from best pose at a max of 10 Hz -->
         <param name="initial_pose_x" value="15.036"/>
         <param name="initial_pose_y" value="25.4013"/>
