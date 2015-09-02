@@ -141,6 +141,8 @@ define pioneer2dx_base_no_sonar pioneer_base
   mass 23.0 
   # differential steering model
   drive "diff"
+
+  sicksensor(pose [0.037 0.0 -1.2 0])
  )
 
 
@@ -495,7 +497,6 @@ define patrolbot_base pioneer2dx_base_no_sonar
     z [ 1.01 1.3 ]
   )
 
-  sicksensor(pose [0.037 0.0 -1.2 0])
 )
 
 define patrolbot patrolbot_base
