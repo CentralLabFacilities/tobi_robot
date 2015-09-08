@@ -1,7 +1,7 @@
 <launch>
 
-    <arg     if="$(env NAVIGATION_USE_SIM)" name="part_sim" value="sim" />
-    <arg unless="$(env NAVIGATION_USE_SIM)" name="part_sim" value="mobile" />
+    <include file="$(find ros4rsb)/launch/ros4rsb.launch">
+        <arg name="use_sim" value="$(env NAVIGATION_USE_SIM)" />
+    </include>
 
-    <include file="$(find ros4rsb)/launch/ros4rsb_$(arg part_sim)_dynamic_map.launch" />
 </launch>

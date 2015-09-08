@@ -11,8 +11,4 @@
         <arg if="$(env NAVIGATION_USE_SIM)" name="world" value="$(env NAVIGATION_WORLD)" />
     </include>
 
-    <include file="$(find ros4rsb)/launch/ros4rsb.launch">
-        <arg name="use_sim" value="$(env NAVIGATION_USE_SIM)" />
-    </include>
-
 </launch>
