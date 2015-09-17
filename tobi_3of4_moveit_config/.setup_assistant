@@ -1,0 +1,8 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: tobi_description
+    relative_path: urdf/tobi_3of4.urdf.xacro
+  SRDF:
+    relative_path: config/tobi_3of4.srdf
+  CONFIG:
+    generated_timestamp: 1430840612
