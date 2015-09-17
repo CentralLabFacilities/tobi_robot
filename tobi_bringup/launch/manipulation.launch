@@ -11,10 +11,10 @@
   </include>
 
   <!-- controllers -->
-  <include file="$(find tobi_moveit_config)/launch/tobi_moveit_controller_manager.launch.xml">
+  <include file="$(find tobi_$(env TOBI_ID)_moveit_config)/launch/tobi_moveit_controller_manager.launch.xml">
   </include>
 
-  <include file="$(find tobi_moveit_config)/launch/move_group.launch">
+  <include file="$(find tobi_$(env TOBI_ID)_moveit_config)/launch/move_group.launch">
     <arg name="allow_trajectory_execution" value="true"/>
     <arg name="fake_execution" value="false"/>
     <arg name="info" value="$(arg info)"/>
