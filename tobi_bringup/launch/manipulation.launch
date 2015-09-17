@@ -4,19 +4,14 @@
   <arg name="debug" default="false" />
   <arg name="info" default="$(arg debug)" />
   <env name="ROSCONSOLE_CONFIG_FILE" value="~/rosconsole.conf"/>
-
+  
   <!-- katana_450_6m90a -->
   <include file="$(find tobi_bringup)/launch/katana.launch">
     <arg name="simulation" value="$(env MANIPULATION_USE_SIM)" />
   </include>
 
-  <!-- controllers -->
-  <include file="$(find tobi_$(env TOBI_ID)_moveit_config)/launch/tobi_moveit_controller_manager.launch.xml">
-  </include>
-
-  <include file="$(find tobi_$(env TOBI_ID)_moveit_config)/launch/move_group.launch">
-    <arg name="allow_trajectory_execution" value="true"/>
-    <arg name="fake_execution" value="false"/>
+  <!-- move_group -->
+  <include file="$(find tobi_bringup)/launch/move_group_$(env TOBI_ID).launch">
     <arg name="info" value="$(arg info)"/>
     <arg name="debug" value="$(arg debug)"/>
   </include>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="debug" default="false" />
+  <arg name="info" default="$(arg debug)" />
+
+  <!-- controllers -->
+  <include file="$(find tobi_3of4_moveit_config)/launch/tobi_moveit_controller_manager.launch.xml">
+  </include>
+
+  <include file="$(find tobi_3of4_moveit_config)/launch/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true"/>
+    <arg name="fake_execution" value="false"/>
+    <arg name="info" value="$(arg info)"/>
+    <arg name="debug" value="$(arg debug)"/>
+  </include>
+
+</launch>
