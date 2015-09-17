@@ -1,5 +1,6 @@
 add_subdirectory(tobi_bringup)
 add_subdirectory(tobi_description)
-add_subdirectory(tobi_moveit_config)
+add_subdirectory(tobi_2of4_moveit_config)
+add_subdirectory(tobi_3of4_moveit_config)
 add_subdirectory(tobi_navigation)
 
