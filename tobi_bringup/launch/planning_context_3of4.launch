@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="load_robot_description" default="true" />
+
+  <!-- build tobi urdf with xacro and push it on the ros parameter server -->
+  <include file="$(find tobi_3of4_moveit_config)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="$(arg load_robot_description)"/>
+  </include>
+
+</launch>

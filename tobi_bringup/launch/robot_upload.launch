@@ -2,7 +2,7 @@
 <launch>
 
   <!-- build tobi urdf with xacro and push it on the ros parameter server -->
-  <include file="$(find tobi_moveit_config)/launch/planning_context.launch">
+  <include file="$(find tobi_bringup)/launch/planning_context_$(env TOBI_ID).launch">
     <arg name="load_robot_description" value="true"/>
   </include>
 
