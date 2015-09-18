@@ -3,5 +3,5 @@
   <param name="moveit_controller_manager" value="moveit_simple_controller_manager/MoveItSimpleControllerManager"/>
 
   <!-- The rest of the params are specific to this plugin -->
-  <rosparam file="$(find tobi_3of4_moveit_config)/config/tobi_controllers.yaml"/>
+  <rosparam file="$(find tobi_2of4_moveit_config)/config/tobi_controllers.yaml"/>
 </launch>

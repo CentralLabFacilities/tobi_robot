@@ -9,6 +9,6 @@
   <param name="max_range" type="double" value="5.0" />
 
   <!-- sensors used to update the map -->
-  <rosparam     if="$(arg use_pointcloud)" command="load" file="$(find tobi_3of4_moveit_config)/config/sensors_xtion_pointcloud.yaml" />
-  <rosparam unless="$(arg use_pointcloud)" command="load" file="$(find tobi_3of4_moveit_config)/config/sensors_xtion_depthimage.yaml" />
+  <rosparam     if="$(arg use_pointcloud)" command="load" file="$(find tobi_2of4_moveit_config)/config/sensors_xtion_pointcloud.yaml" />
+  <rosparam unless="$(arg use_pointcloud)" command="load" file="$(find tobi_2of4_moveit_config)/config/sensors_xtion_depthimage.yaml" />
 </launch>
