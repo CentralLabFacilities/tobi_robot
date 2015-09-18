@@ -8,7 +8,7 @@
 
   <!-- katana node -->
   <node pkg="katana" type="katana" name="katana" output="screen">
-    <param name="config_file_path" type="string" value="$(find kni)/KNI_4.3.0/configfiles450/katana6M180_G.cfg" />
+    <param name="config_file_path" type="string" value="$(find tobi_bringup)/config/katana6M180_G.cfg" />
     <param name="ip" type="string" value="192.168.1.232" />
     <param name="force_threshold" type="int" value="160" />
     <param name="simulation" type="bool" value="$(arg simulation)" />
