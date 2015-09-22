@@ -6,5 +6,6 @@
     <arg name="transitions" value="$(find tobi_bringup)/config/picknplace_transitions.cfg" />
     <arg name="use_sim" value="$(arg use_sim)" />
     <arg name="gripperPositionClosed" value="-0.55" />
+    <arg name="graspThroughDistance" value="0.01" />
  </include>
 </launch>
