@@ -7,7 +7,8 @@ project(tobi_robot)
 find_package(catkin REQUIRED COMPONENTS
   tobi_bringup
   tobi_description
-  tobi_moveit_config
+  tobi_2of4_moveit_config
+  tobi_3of4_moveit_config
   tobi_navigation
 )
 
