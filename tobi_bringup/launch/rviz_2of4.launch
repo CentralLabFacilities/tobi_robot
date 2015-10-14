@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="debug" default="false" />
+  <arg unless="$(arg debug)" name="launch_prefix" value="" />
+  <arg     if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args" />
+
+  <arg name="config_arm" default="false" />
+  <arg unless="$(arg config_arm)" name="command_args_arm" value="" />
+  <arg     if="$(arg config_arm)" name="command_args_arm" value="-d $(find tobi_bringup)/config/manipulation.rviz" />
+
+  <arg name="config_nav" default="false" />
+  <arg unless="$(arg config_nav)" name="command_args_nav" value="" />
+  <arg     if="$(arg config_nav)" name="command_args_nav" value="-d $(find tobi_bringup)/config/navigation.rviz" />
+
+  <node name="$(anon rviz)" launch-prefix="$(arg launch_prefix)" pkg="rviz" type="rviz" respawn="false"
+	args="$(arg command_args_arm) $(arg command_args_nav)" output="screen">
+    <rosparam command="load" file="$(find tobi_2of4_moveit_config)/config/kinematics.yaml"/>
+  </node>
+
+</launch>
+
