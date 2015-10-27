@@ -1,8 +1,16 @@
 <?xml version="1.0"?>
 <launch>
 	
+	<arg name="debug" default="false" />
+	<arg name="config_arm" default="false" />
+	<arg name="config_nav" default="false" />
+	<env name="ROSCONSOLE_CONFIG_FILE" value="~/rosconsole.conf"/>
+
 	<include file="$(find tobi_bringup)/launch/rviz_$(env TOBI_ID).launch">
-  </include>
+		<arg name="config_arm" value="$(arg config_arm)"/>
+		<arg name="config_nav" value="$(arg config_nav)"/>
+ 	 </include>
 
 </launch>
+
 
