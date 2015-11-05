@@ -6,7 +6,7 @@
     <include file="$(find tobi_navigation)/launch/tobi_config.launch" />
 
     <!-- Run the map server -->
-    <node name="map_server" respawn="true" pkg="map_server" type="map_server" args="$(find tobi_navigation)/maps/$(arg map).yaml"/>
+    <node name="map_server" respawn="true" pkg="map_server" type="map_server" args="$(arg map).yaml"/>
 
     <!--- Run AMCL -->
     <include file="$(find tobi_navigation)/launch/amcl.launch">
