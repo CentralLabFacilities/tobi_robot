@@ -69,8 +69,8 @@
         <joint name="katana_motor1_pan_joint" value="0.3848" />
         <joint name="katana_motor2_lift_joint" value="0.2646" />
         <joint name="katana_motor3_lift_joint" value="-0.5252" />
-        <joint name="katana_motor4_lift_joint" value="0.5122" />
-        <joint name="katana_motor5_wrist_roll_joint" value="1.67" />
+        <joint name="katana_motor4_lift_joint" value="0.2122" />
+        <joint name="katana_motor5_wrist_roll_joint" value="-0.24" />
     </group_state>
         <group_state name="fold_up_left" group="arm">
         <joint name="katana_motor1_pan_joint" value="-0.3679" />
@@ -83,7 +83,7 @@
         <joint name="katana_motor1_pan_joint" value="0.3848" />
         <joint name="katana_motor2_lift_joint" value="0.2646" />
         <joint name="katana_motor3_lift_joint" value="-0.5252" />
-        <joint name="katana_motor4_lift_joint" value="0.7236" />
+        <joint name="katana_motor4_lift_joint" value="-0.7236" />
         <joint name="katana_motor5_wrist_roll_joint" value="1.6714" />
     </group_state>
         <group_state name="via_up0_left" group="arm">
