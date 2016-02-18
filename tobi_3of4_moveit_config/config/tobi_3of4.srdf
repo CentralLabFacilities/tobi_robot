@@ -66,6 +66,13 @@
         <joint name="katana_motor5_wrist_roll_joint" value="0" />
     </group_state>
     <group_state name="fold_up" group="arm">
+        <joint name="katana_motor1_pan_joint" value="-0.3848" />
+        <joint name="katana_motor2_lift_joint" value="0.2646" />
+        <joint name="katana_motor3_lift_joint" value="-0.5252" />
+        <joint name="katana_motor4_lift_joint" value="0.5122" />
+        <joint name="katana_motor5_wrist_roll_joint" value="2.8861" />
+    </group_state>
+        <group_state name="fold_up_left" group="arm">
         <joint name="katana_motor1_pan_joint" value="-0.3679" />
         <joint name="katana_motor2_lift_joint" value="0.2304" />
         <joint name="katana_motor3_lift_joint" value="-0.6336" />
@@ -73,6 +80,13 @@
         <joint name="katana_motor5_wrist_roll_joint" value="1.9481" />
     </group_state>
     <group_state name="via_up0" group="arm">
+        <joint name="katana_motor1_pan_joint" value="-0.3848" />
+        <joint name="katana_motor2_lift_joint" value="0.2646" />
+        <joint name="katana_motor3_lift_joint" value="-0.5252" />
+        <joint name="katana_motor4_lift_joint" value="0.7236" />
+        <joint name="katana_motor5_wrist_roll_joint" value="1.6714" />
+    </group_state>
+        <group_state name="via_up0_left" group="arm">
         <joint name="katana_motor1_pan_joint" value="-0.3679" />
         <joint name="katana_motor2_lift_joint" value="0.2304" />
         <joint name="katana_motor3_lift_joint" value="-0.6336" />
@@ -100,6 +114,104 @@
         <joint name="katana_motor4_lift_joint" value="-1.7445" />
         <joint name="katana_motor5_wrist_roll_joint" value="0.5225" />
     </group_state>
+    <group_state name="help_grasping_one" group="arm">
+        <joint name="katana_motor1_pan_joint" value="-1.8108" />
+        <joint name="katana_motor2_lift_joint" value="1.0074" />
+        <joint name="katana_motor3_lift_joint" value="-0.4143" />
+        <joint name="katana_motor4_lift_joint" value="-0.9409" />
+        <joint name="katana_motor5_wrist_roll_joint" value="-1.8475" />
+     </group_state>
+     <group_state name="help_grasping_two" group="arm">
+        <joint name="katana_motor1_pan_joint" value="-1.6686" />
+        <joint name="katana_motor2_lift_joint" value="1.8316" />
+        <joint name="katana_motor3_lift_joint" value="-0.3627" />
+        <joint name="katana_motor4_lift_joint" value="-1.807" />
+        <joint name="katana_motor5_wrist_roll_joint" value="-1.6989" />
+     </group_state>
+     <group_state name="help_grasping_three" group="arm">
+        <joint name="katana_motor1_pan_joint" value="-1.6951" />
+        <joint name="katana_motor2_lift_joint" value="1.31" />
+        <joint name="katana_motor3_lift_joint" value="-0.2743" />
+        <joint name="katana_motor4_lift_joint" value="-1.052" />
+        <joint name="katana_motor5_wrist_roll_joint" value="-1.6984" />
+      </group_state>
+      <group_state name="help_grasping_four" group="arm">
+        <joint name="katana_motor1_pan_joint" value="-1.4819" />
+        <joint name="katana_motor2_lift_joint" value="2.1515" />
+        <joint name="katana_motor3_lift_joint" value="-0.6064" />
+        <joint name="katana_motor4_lift_joint" value="-0.1098" />
+        <joint name="katana_motor5_wrist_roll_joint" value="-1.5393" />
+     </group_state>
+     <group_state name="help_grasping_five" group="arm">
+        <joint name="katana_motor1_pan_joint" value="-1.4553" />
+        <joint name="katana_motor2_lift_joint" value="1.787" />
+        <joint name="katana_motor3_lift_joint" value="-0.6065" />
+        <joint name="katana_motor4_lift_joint" value="-1.4798" />
+        <joint name="katana_motor5_wrist_roll_joint" value="-1.5377" />
+     </group_state>
+     <group_state name="help_grasping_six" group="arm">
+        <joint name="katana_motor1_pan_joint" value="-1.5732" />
+        <joint name="katana_motor2_lift_joint" value="1.3346" />
+        <joint name="katana_motor3_lift_joint" value="-0.8067" />
+        <joint name="katana_motor4_lift_joint" value="-1.1296" />
+        <joint name="katana_motor5_wrist_roll_joint" value="1.5601" />
+     </group_state>
+     <group_state name="help_grasping_seven" group="arm">
+        <joint name="katana_motor1_pan_joint" value="-1.5694" />
+        <joint name="katana_motor2_lift_joint" value="1.7154" />
+        <joint name="katana_motor3_lift_joint" value="-0.7833" />
+        <joint name="katana_motor4_lift_joint" value="-0.8814" />
+        <joint name="katana_motor5_wrist_roll_joint" value="-1.5631" />
+     </group_state>
+     <group_state name="help_grasping_eight" group="arm">
+        <joint name="katana_motor1_pan_joint" value="-1.5441" />
+        <joint name="katana_motor2_lift_joint" value="1.7135" />
+        <joint name="katana_motor3_lift_joint" value="-1.7931" />
+        <joint name="katana_motor4_lift_joint" value="-2.0174" />
+        <joint name="katana_motor5_wrist_roll_joint" value="-1.5637" />
+     </group_state>
+     <group_state name="help_grasping_nine" group="arm">
+        <joint name="katana_motor1_pan_joint" value="-1.3588" />
+        <joint name="katana_motor2_lift_joint" value="2.0199" />
+        <joint name="katana_motor3_lift_joint" value="-0.8489" />
+        <joint name="katana_motor4_lift_joint" value="-0.8234" />
+        <joint name="katana_motor5_wrist_roll_joint" value="1.3639" />
+     </group_state>
+     <group_state name="help_grasping_ten" group="arm">
+        <joint name="katana_motor1_pan_joint" value="-0.0549" />
+        <joint name="katana_motor2_lift_joint" value="1.3495" />
+        <joint name="katana_motor3_lift_joint" value="-0.4786" />
+        <joint name="katana_motor4_lift_joint" value="-1.5607" />
+        <joint name="katana_motor5_wrist_roll_joint" value="-0.0655" />
+     </group_state>
+     <group_state name="help_grasping_eleven" group="arm">
+        <joint name="katana_motor1_pan_joint" value="-0.0262" />
+        <joint name="katana_motor2_lift_joint" value="1.1466" />
+        <joint name="katana_motor3_lift_joint" value="-0.6324" />
+        <joint name="katana_motor4_lift_joint" value="-1.996" />
+        <joint name="katana_motor5_wrist_roll_joint" value="0.0681" />
+     </group_state>
+     <group_state name="help_grasping_twelve" group="arm">
+        <joint name="katana_motor1_pan_joint" value="-1.0320" />
+        <joint name="katana_motor2_lift_joint" value="1.1937" />
+        <joint name="katana_motor3_lift_joint" value="-0.0455" />
+        <joint name="katana_motor4_lift_joint" value="-1.7544" />
+        <joint name="katana_motor5_wrist_roll_joint" value="-1.3026" />
+     </group_state>
+     <group_state name="help_grasping_up_one" group="arm">
+        <joint name="katana_motor1_pan_joint" value="0.6738" />
+        <joint name="katana_motor2_lift_joint" value="1.3405" />
+        <joint name="katana_motor3_lift_joint" value="-0.5055" />
+        <joint name="katana_motor4_lift_joint" value="-1.654" />
+        <joint name="katana_motor5_wrist_roll_joint" value="0.6811" />
+     </group_state>
+     <group_state name="help_grasping_up_two" group="arm">
+        <joint name="katana_motor1_pan_joint" value="0.0355" />
+        <joint name="katana_motor2_lift_joint" value="1.0377" />
+        <joint name="katana_motor3_lift_joint" value="-0.2723" />
+        <joint name="katana_motor4_lift_joint" value="-1.3090" />
+        <joint name="katana_motor5_wrist_roll_joint" value="0.004" />
+     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="eef" parent_link="katana_gripper_tool_frame" group="gripper" parent_group="arm" />
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
