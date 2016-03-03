@@ -146,7 +146,7 @@
   <joint name="box_head_to_sensor_head" type="fixed">
     <parent link="box_head_link" />
     <child link="sensor_head_link" />
-    <origin xyz="0.08 0 0.20" rpy="0 0 0" />
+    <origin xyz="0.08 0.02 0.20" rpy="0 0 0" />
   </joint>
 
 </robot>
