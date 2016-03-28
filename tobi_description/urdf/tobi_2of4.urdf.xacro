@@ -130,7 +130,7 @@
   <link name="sensor_head_link">
     <visual>
       <geometry>
-        <box size="0.15 .30 .12"/>
+        <box size="0.15 .26 .12"/>
       </geometry>
       <material name="grey" >
         <color rgba="0.5 0.5 0.5 1" />
@@ -138,7 +138,7 @@
     </visual>
     <collision>
       <geometry>
-        <box size="0.15 .30 .12"/>
+        <box size="0.15 .26 .12"/>
       </geometry>
     </collision>
   </link>
