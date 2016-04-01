@@ -129,6 +129,12 @@
     <group unless="$(arg with_map_filter)">
         <node pkg="leg_detector" type="leg_detector" name="leg_detector" args="scan:=$(arg scan) $(find leg_detector)/config/trained_leg_detector.yaml" respawn="true" output="screen">
             <param name="fixed_frame" type="string" value="odom" />
+            <param name="connection_threshold" type="double" value="0.1" />
+            <param name="leg_reliability_limit" type="double" value="1.4" />
+            <param name="max_second_leg_age" type="double" value="1.5" />
+            <param name="max_track_jump" type="double" value="0.8" />
+            <param name="max_meas_jump" type="double" value="0.8" />
+            <param name="leg_pair_seperation" type="double" value="0.5" />
         </node>
     </group> 
     
