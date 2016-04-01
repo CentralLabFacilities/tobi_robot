@@ -1,8 +1,8 @@
 <launch>
     <arg name="topic_scan" />
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
-        <remap from="/scan" to="$(arg topic_scan)"/>
-        <param name="maxUrange" value="8.0"/><!-- scans farther than this will be used for clearing but not for marking -->
+        <!--<remap from="/scan" to="$(arg topic_scan)"/>-->
+        <param name="maxUrange" value="8.1"/><!-- scans farther than this will be used for clearing but not for marking -->
         <param name="maxRange" value="9.0"/><!-- scans farther than this will be ignored completely -->
         <param name="sigma" value="0.05"/>
         <param name="kernelSize" value="1"/>
