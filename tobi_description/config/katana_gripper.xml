@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Postures robot="RightHand" xmlns:dbxml="http://www.sleepycat.com/2002/dbxml">
+
+  <group name="AllFingerPrecision">
+    <posture name="final" robot="Arm" units="rad">3.14159
+      <controller>1</controller>
+    </posture>
+    <posture name="pre" robot="Arm" units="rad">0.0
+      <controller>1</controller>
+    </posture>
+    <center name="pos" units="cm">0, 0, 0</center>
+    <center name="euler" units="deg">-20, 0, 0</center>
+  </group>
+
+  <group name="PowerGrasp">
+    <posture name="final" robot="Arm" units="rad">3.14159
+      <controller>1</controller>
+    </posture>
+    <posture name="pre" robot="Arm" units="rad">0.0
+      <controller>1</controller>
+    </posture>
+    <center name="pos" units="cm">0, 0, 0</center>
+    <center name="euler" units="deg">-20, 0, 0</center>
+  </group>
+
+  <group name="ThreeFingerPrecision">
+    <posture name="final" robot="Arm" units="rad">3.14159
+      <controller>1</controller>
+    </posture>
+    <posture name="pre" robot="Arm" units="rad">0.0
+      <controller>1</controller>
+    </posture>
+    <center name="pos" units="cm">1.8, 0, 0</center>
+    <center name="euler" units="deg">-20, 0, 0</center>
+  </group>
+
+  <group name="TwoFingerPrecision">
+   <posture name="final" robot="Arm" units="rad">3.14159
+      <controller>1</controller>
+    </posture>
+    <posture name="pre" robot="Arm" units="rad">0.0
+      <controller>1</controller>
+    </posture>
+    <center name="pos" units="cm">3.6, 0, 0</center>
+    <center name="euler" units="deg">-20, 0, 0</center>
+  </group>
+
+
+</Postures>
