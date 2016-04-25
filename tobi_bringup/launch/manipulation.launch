@@ -3,7 +3,7 @@
 
   <arg name="debug" default="false" />
   <arg name="info" default="$(arg debug)" />
-  <env name="ROSCONSOLE_CONFIG_FILE" value="~/rosconsole.conf"/>
+  <!--env name="ROSCONSOLE_CONFIG_FILE" value="~/rosconsole.conf"/-->
   
   <!-- katana_450_6m90a -->
   <include file="$(find tobi_bringup)/launch/katana.launch">
