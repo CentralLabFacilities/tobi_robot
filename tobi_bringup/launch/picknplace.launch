@@ -8,7 +8,7 @@
     <!--arg name="gripperPositionClosed" value="-0.55" />
     <arg name="graspThroughDistance" value="0.01" /-->
     <arg name="model" value="katana" />
-    <arg name="groupArm" value="arm" />
+    <arg name="groupArm" value="left_arm" />
     <arg name="groupEe" value="gripper" />
  </include>
 </launch>
