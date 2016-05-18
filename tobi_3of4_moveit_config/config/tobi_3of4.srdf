@@ -127,31 +127,46 @@
     <disable_collisions link1="guiabot" link2="katana_base_link" reason="Adjacent" />
     <disable_collisions link1="guiabot" link2="katana_motor1_pan_link" reason="Never" />
     <disable_collisions link1="guiabot" link2="katana_motor3_lift_link" reason="Default" />
+    
     <disable_collisions link1="katana_base_link" link2="katana_motor1_pan_link" reason="Adjacent" />
     <disable_collisions link1="katana_base_link" link2="katana_motor2_lift_link" reason="Never" />
     <disable_collisions link1="katana_base_link" link2="katana_motor3_lift_link" reason="Never" />
+    
     <disable_collisions link1="katana_gripper_link" link2="katana_gripper_tool_frame" reason="Never" />
     <disable_collisions link1="katana_gripper_link" link2="katana_l_finger_link" reason="Adjacent" />
     <disable_collisions link1="katana_gripper_link" link2="katana_motor3_lift_link" reason="Never" />
     <disable_collisions link1="katana_gripper_link" link2="katana_motor4_lift_link" reason="Never" />
     <disable_collisions link1="katana_gripper_link" link2="katana_motor5_wrist_roll_link" reason="Adjacent" />
     <disable_collisions link1="katana_gripper_link" link2="katana_r_finger_link" reason="Adjacent" />
+    <disable_collisions link1="katana_gripper_link" link2="katana_gripper_tool_agni_frame" reason="Never" />
+    
+    <disable_collisions link1="katana_gripper_tool_agni_frame" link2="katana_l_finger_link" reason="Never" />
+    <disable_collisions link1="katana_gripper_tool_agni_frame" link2="katana_motor3_lift_link" reason="Never" />
+    <disable_collisions link1="katana_gripper_tool_agni_frame" link2="katana_motor4_lift_link" reason="Never" />
+    <disable_collisions link1="katana_gripper_tool_agni_frame" link2="katana_motor5_wrist_roll_link" reason="Adjacent" />
+    <disable_collisions link1="katana_gripper_tool_agni_frame" link2="katana_r_finger_link" reason="Never" />
+    <disable_collisions link1="katana_gripper_tool_agni_frame" link2="katana_gripper_tool_frame" reason="Adjacent" />
+    
     <disable_collisions link1="katana_gripper_tool_frame" link2="katana_l_finger_link" reason="Never" />
     <disable_collisions link1="katana_gripper_tool_frame" link2="katana_motor3_lift_link" reason="Never" />
     <disable_collisions link1="katana_gripper_tool_frame" link2="katana_motor4_lift_link" reason="Never" />
     <disable_collisions link1="katana_gripper_tool_frame" link2="katana_motor5_wrist_roll_link" reason="Adjacent" />
     <disable_collisions link1="katana_gripper_tool_frame" link2="katana_r_finger_link" reason="Never" />
+    
     <disable_collisions link1="katana_l_finger_link" link2="katana_motor3_lift_link" reason="Never" />
     <disable_collisions link1="katana_l_finger_link" link2="katana_motor4_lift_link" reason="Never" />
     <disable_collisions link1="katana_l_finger_link" link2="katana_motor5_wrist_roll_link" reason="Never" />
     <disable_collisions link1="katana_l_finger_link" link2="katana_r_finger_link" reason="Default" />
+    
     <disable_collisions link1="katana_motor1_pan_link" link2="katana_motor2_lift_link" reason="Adjacent" />
     <disable_collisions link1="katana_motor1_pan_link" link2="katana_motor3_lift_link" reason="Never" />
+    
     <disable_collisions link1="katana_motor2_lift_link" link2="katana_motor3_lift_link" reason="Adjacent" />
     <disable_collisions link1="katana_motor3_lift_link" link2="katana_motor4_lift_link" reason="Adjacent" />
     <disable_collisions link1="katana_motor3_lift_link" link2="katana_motor5_wrist_roll_link" reason="Never" />
     <disable_collisions link1="katana_motor3_lift_link" link2="katana_r_finger_link" reason="Never" />
     <disable_collisions link1="katana_motor4_lift_link" link2="katana_motor5_wrist_roll_link" reason="Adjacent" />
     <disable_collisions link1="katana_motor4_lift_link" link2="katana_r_finger_link" reason="Never" />
+    
     <disable_collisions link1="katana_motor5_wrist_roll_link" link2="katana_r_finger_link" reason="Never" />
 </robot>
