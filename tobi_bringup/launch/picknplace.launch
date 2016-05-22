@@ -10,5 +10,6 @@
     <arg name="model" value="katana" />
     <arg name="groupArm" value="left_arm" />
     <arg name="groupEe" value="left_hand" />
+    <arg name="frameGripper" value="katana_gripper_tool_frame" />
  </include>
 </launch>
