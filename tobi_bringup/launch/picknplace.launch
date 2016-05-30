@@ -11,5 +11,6 @@
     <arg name="groupArm" value="left_arm" />
     <arg name="groupEe" value="left_hand" />
     <arg name="frameGripper" value="katana_gripper_tool_frame" />
+    <arg name="robot" value="tobi" />
  </include>
 </launch>
