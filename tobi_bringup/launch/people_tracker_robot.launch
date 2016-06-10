@@ -135,7 +135,7 @@
             <param name="max_second_leg_age" type="double" value="0" />
             <param name="max_track_jump" type="double" value="0.8" />
             <param name="max_meas_jump" type="double" value="0.8" />
-            <param name="leg_pair_separation" type="double" value="0.3" />
+            <param name="leg_pair_separation" type="double" value="0.5" />
         </node>
     </group> 
     
