@@ -11,13 +11,16 @@ scan_filter_chain:
   params:
     lower_threshold: 0.3
     upper_threshold: .inf
-- name: specific_angle_filter
+- name: specific_angle_filter1
   type: LaserScanAngularBoundsFilter
   params:
-    lower_angle1: 1.38
-    upper_angle1: 1.43
-    lower_angle2: -1.43
-    upper_angle2: -1.38
+    lower_angle: -1.43
+    upper_angle: -1.38
+- name: specific_angle_filter2
+  type: LaserScanAngularBoundsFilter
+  params:
+    lower_angle: 1.38
+    upper_angle: 1.43
 #- name: footprint_filter
 #  type: LaserScanFootprintFilter
 #  params:
