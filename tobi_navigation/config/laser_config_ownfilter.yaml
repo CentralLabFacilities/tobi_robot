@@ -3,8 +3,8 @@ scan_filter_chain:
   type: laser_filters/ScanShadowsFilter
   params:
     min_angle: 0
-    max_angle: 175
-    neighbors: 1
+    max_angle: 170
+    neighbors: 3
     window: 1
 - name: range
   type: laser_filters/LaserScanRangeFilter
@@ -14,13 +14,13 @@ scan_filter_chain:
 - name: specific_angle_filter1
   type: LaserScanAngularBoundsFilter
   params:
-    lower_angle: -1.43
-    upper_angle: -1.38
+    lower_angle: -1.50
+    upper_angle: -1.30
 - name: specific_angle_filter2
   type: LaserScanAngularBoundsFilter
   params:
-    lower_angle: 1.38
-    upper_angle: 1.43
+    lower_angle: 1.30
+    upper_angle: 1.50
 #- name: footprint_filter
 #  type: LaserScanFootprintFilter
 #  params:
