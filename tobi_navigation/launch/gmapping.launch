@@ -31,6 +31,6 @@
         <param name="llsamplestep" value="0.01"/>
         <param name="lasamplerange" value="0.005"/>
         <param name="lasamplestep" value="0.005"/>
-        <param name="occ_thresh" value="2.0"/> <!-- for followme use 0.6 here !!!-->
+        <param name="occ_thresh" value="0.99"/> <!-- for followme use 0.6 here !!!-->
     </node>
 </launch>
