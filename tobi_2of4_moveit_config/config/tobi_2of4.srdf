@@ -119,7 +119,7 @@
         <joint name="katana_motor2_lift_joint" value="1.5443" />
         <joint name="katana_motor3_lift_joint" value="-2.2053" />
         <joint name="katana_motor4_lift_joint" value="-0.6271" />
-        <joint name="katana_motor5_wrist_roll_joint" value="-2.9520" />
+        <joint name="katana_motor5_wrist_roll_joint" value="0" />
      </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="left_hand" parent_link="katana_gripper_tool_frame" group="left_hand" parent_group="left_arm" />
