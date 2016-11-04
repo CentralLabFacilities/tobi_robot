@@ -20,8 +20,8 @@
         <param name="angle" type="int" value="180"/>
         <param name="resolution" type="double" value="0.5"/>
     </node>
-
-    <!-- hokuyo laser -->
+ 
+    <!-- hokuyo laser		since the hokuyo_node is not available for kinetic (yet?) we use the newer urg_node
     <node name="hokuyo" pkg="hokuyo_node" type="hokuyo_node" respawn="true" output="screen">
         <remap from="scan" to="scan_rear"/>
         <param name="calibrate_time" type="bool" value="false"/>
@@ -30,6 +30,17 @@
         <param name="frame_id" type="string" value="laser_rear"/>
         <param name="min_ang" type="double" value="-1.83"/><!-- -pi/2 = -1.5708-->
         <param name="max_ang" type="double" value="1.83"/><!-- pi/2 = 1.5708-->
+    </node-->
+
+    <!-- hokuyo laser with urg_node. params are modified to match those of the old hokuyo_node       -->
+    <node name="hokuyo" pkg="urg_node" type="urg_node" respawn="true" output="screen">
+        <remap from="scan" to="scan_rear"/>
+        <param name="calibrate_time" type="bool" value="false"/>
+        <param name="port" type="string" value="/dev/ttyACM0"/>
+        <param name="publish_intensity" type="bool" value="false"/>
+        <param name="frame_id" type="string" value="laser_rear"/>
+        <param name="angle_min" type="double" value="-1.83"/><!-- -pi/2 = -1.5708-->
+        <param name="angle_max" type="double" value="1.83"/><!-- pi/2 = 1.5708-->
     </node>
 
     <node pkg="laser_filters" respawn="true" type="scan_to_scan_filter_chain" name="laser_filter">
