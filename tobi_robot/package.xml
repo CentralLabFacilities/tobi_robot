@@ -45,6 +45,8 @@
   <build_depend>tobi_description</build_depend>
   <build_depend>tobi_moveit_config</build_depend>
   <build_depend>tobi_navigation</build_depend>
+  <build_depend>tobi_3of4_moveit_config</build_depend>
+  <build_depend>tobi_2of4_moveit_config</build_depend>
   <run_depend>tobi_bringup</run_depend>
   <run_depend>tobi_description</run_depend>
   <run_depend>tobi_moveit_config</run_depend>
