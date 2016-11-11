@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<robot name="tobi" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="box_inertial" params="x y z mass">
+    <inertial>
+      <mass value="${mass}" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="${0.0833333 * mass * (y*y + z*z)}" ixy="0.0" ixz="0.0" 
+        iyy="${0.0833333 * mass * (x*x + z*z)}" iyz="0.0" 
+        izz="${0.0833333 * mass * (x*x + y*y)}" />
+    </inertial>
+  </xacro:macro>
+
+  <property name="M_PI" value="3.1415926535897931" />
+
+  <xacro:property name="guiabot_length" value="0.59"/>
+  <xacro:property name="guiabot_width" value="0.48"/>
+  <xacro:property name="guiabot_height" value="1.30"/>
+
+  <xacro:property name="guiabot_height" value="1.51"/>
+  <xacro:property name="camera_link" value="0.05" />
+
+
+  <link name="guiabot">
+    <visual>
+      <geometry>
+        <mesh filename="package://tobi_description/meshes/guiabot.stl"/>
+      </geometry>
+      <material name="grey" >
+        <color rgba="1.0 1.0 1.0 1" />
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://tobi_description/meshes/guiabot.stl"/>
+      </geometry>
+    </collision>
+    <xacro:box_inertial x="${guiabot_length}" y="${guiabot_width}" z="${guiabot_height}" mass="2"/>
+  </link>
+  
+
+  <!-- **************************** -->
+  <!-- *** Laser Sensor Tobi    *** -->
+  <!-- **************************** -->
+  
+  <xacro:include filename="/homes/dsixt/robocup/tobi_robot/tobi_description/urdf/tobi_laser_nav.urdf.xacro" />   <!-- $(find tobi_description) -->
+
+  <!-- **************************** -->
+  <!-- *** Neuronics Katana Arm *** -->
+  <!-- **************************** -->
+
+  <xacro:include filename="$(find katana_description)/urdf/katana_450_6m180_simple.urdf.xacro" />
+
+  <joint name="tobi_guiabot_katana_joint" type="fixed">
+    <parent link="guiabot" />
+    <child link="katana_base_link" />
+    <origin xyz="0.0 0 0.86" rpy="0 ${-M_PI/2} 0" />
+  </joint>
+
+  <link name="base_link" />
+
+  <joint name="base_link_to_guiabot" type="fixed">
+    <parent link="base_link" />
+    <child link="guiabot" />
+    <origin xyz="0 0 0" rpy="0 0 ${M_PI}" />
+  </joint>
+
+  
+
+  <link name="box_head_link">
+    <visual>
+      <geometry>
+        <box size="0.1 .1 .1"/>
+      </geometry>
+      <material name="grey" >
+        <color rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0.125 0.165 -0.03" rpy="0 -0.56 0" />
+      <geometry>
+        <cylinder radius="0.017" length="0.25"/>
+      </geometry>
+      <material name="grey" >
+        <color rgba="0.2 0.2 0.2 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0.125 -0.165 -0.03" rpy="0 -0.56 0" />
+      <geometry>
+        <cylinder radius="0.017" length="0.25"/>
+      </geometry>
+      <material name="grey" >
+        <color rgba="0.2 0.2 0.2 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0.16 0 -0.15" rpy="0 0.08 0" />
+      <geometry>
+        <box size="0.04 0.35 0.08"/>
+      </geometry>
+      <material name="grey" >
+        <color rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.1 .1 .1"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.125 0.165 -0.03" rpy="0 -0.56 0" />
+      <geometry>
+        <cylinder radius="0.017" length="0.25"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.125 -0.165 -0.03" rpy="0 -0.56 0" />
+      <geometry>
+        <cylinder radius="0.017" length="0.25"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.16 0 -0.15" rpy="0 0.08 0" />
+      <geometry>
+        <box size="0.04 0.35 0.08"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="katana_link_to_box_head" type="fixed">
+    <parent link="guiabot" />
+    <child link="box_head_link" />
+    <origin xyz="0 0 1.16" rpy="0 0 ${M_PI}" />
+  </joint>
+
+  <link name="sensor_head_link">
+    <visual>
+      <geometry>
+        <box size="0.15 .26 .12"/>
+      </geometry>
+      <material name="grey" >
+        <color rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.15 .26 .12"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="box_head_to_sensor_head" type="fixed">
+    <parent link="box_head_link" />
+    <child link="sensor_head_link" />
+    <origin xyz="0.08 0.02 0.20" rpy="0 0 0" />
+  </joint>
+
+
+<gazebo reference="sensor_head_link">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+<gazebo reference="box_head_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+<!--
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libdiffdrive_plugin.so">
+      ... plugin parameters ...
+    </plugin>
+  </gazebo>
+-->
+</robot>

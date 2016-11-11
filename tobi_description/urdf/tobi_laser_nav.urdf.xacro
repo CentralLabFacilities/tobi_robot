@@ -1,0 +1,251 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro"
+      name="tobi_laser_nav">
+  
+  
+  <property name="M_PI" value="3.1415926535897931" />
+  
+  <!-- all values from the katana manual -->
+  <property name="base_height" value="0.2015" />
+  <property name="link2_length" value="0.19" />
+  <property name="link3_length" value="0.139" />
+  <property name="link4_length" value="0.1473" />
+  <property name="link5_length" value="0.1505" />
+  <property name="tool_frame_offset" value="0.11" />
+
+
+<joint name="base_link_to_laser_virtual" type="fixed">
+    <parent link="base_link" />
+    <child link="laser_virtual" />
+    <!-- <origin xyz="0 0 0.1397" rpy="0 0 0" /> -->
+    <origin xyz="0 0 0.1397" rpy="0 0 0" />
+  </joint>
+
+<joint name="base_link_to_laser_front" type="fixed">
+    <parent link="base_link" />
+    <child link="laser_front" />
+    <!-- <origin xyz="0 0 0.1397" rpy="0 0 ${M_PI}"/> -->
+    <origin xyz="0.077 0 0.284" rpy="0 0 0"/>
+  </joint>
+
+<joint name="base_link_to_laser_rear" type="fixed">
+    <parent link="base_link" />
+    <child link="laser_rear" />
+    <!-- <origin xyz="-0.290 0 0.1397" rpy="0 ${M_PI} 0"/> -->
+    <origin xyz="-0.233 0 0.284" rpy="0 ${M_PI} 0"/>
+  </joint>
+
+<link name="laser_virtual">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    	<box size="0.05 0.05 0.05"/>
+      </geometry>
+    </visual>
+  </link>
+
+<link name="laser_front">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    	<box size="0.05 0.05 0.05"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+<link name="laser_rear">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    	<box size="0.05 0.05 0.05"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+<joint name="camera_joint" type="fixed">
+    <parent link="sensor_head_link" />
+    <child link="camera_link" />
+    <origin xyz="0.08 0.02 0.20" rpy="0 0 0" />
+  </joint>
+
+
+  <link name="camera_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="${camera_link} ${camera_link} ${camera_link}"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="-0.025 0 -0.12" rpy="0 0 0"/>
+      <geometry>
+    	<box size="${camera_link} ${camera_link} ${camera_link}"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+<!-- camera 
+<gazebo reference="camera_link">
+    <sensor type="camera" name="camera1">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>tobi/camera1</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+-->
+
+<!-- hokuyo -->
+  <gazebo reference="laser_rear">
+    <sensor type="gpu_ray" name="head_hokuyo_sensor1">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.570796</min_angle>
+            <max_angle>1.570796</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>12.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
+        <topicName>/tobi/laser/rear/scan</topicName>
+        <frameName>laser_rear</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+<!-- sick -->
+  <gazebo reference="laser_front">
+    <sensor type="gpu_ray" name="head_hokuyo_sensor2">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.570796</min_angle>
+            <max_angle>1.570796</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>16.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise parameters based on published spec for Hokuyo laser
+               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+               reading. -->
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
+        <topicName>/tobi/laser/front/scan</topicName>
+        <frameName>laser_front</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- MATERIALS -->
+
+  <gazebo reference="camera_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+<gazebo reference="laser_rear">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+<gazebo reference="laser_front">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+</robot>

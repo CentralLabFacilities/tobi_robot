@@ -7,9 +7,6 @@
 
     <!-- static transform -->
     <arg name="pi" value="3.14159265"/>
-    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_virtual" args=" 0     0 0.1397 0 0         0 base_link laser_virtual 100" />
-    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_front"   args=" 0     0 0.1397 0 0 $(arg pi) base_link laser_front 100" />
-    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_rear"    args="-0.290 0 0.1397 0 $(arg pi) 0 base_link laser_rear 100" />
 
     <!-- sick laser -->
     <node pkg="sicktoolbox_wrapper" respawn="true" type="sicklms" name="sicklms_node" output="screen" >
