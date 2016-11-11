@@ -3,7 +3,7 @@
 
   <!-- Convert an xacro and put on parameter server -->
   <!-- <param name="robot_description" command="$(find xacro)/xacro.py $(find tobi_description)/urdf/tobi_nav.urdf.xacro" /> -->
-  <param name="robot_description" command="$(find xacro)/xacro.py /homes/dsixt/robocup/tobi_robot/tobi_description/urdf/tobi_nav.urdf.xacro" />
+  <param name="robot_description" command="$(find xacro)/xacro.py $(find tobi_description)/urdf/tobi_nav.urdf.xacro" />
 
   <!-- Spawn a robot into Gazebo -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model tobi" />

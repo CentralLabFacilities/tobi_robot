@@ -43,7 +43,7 @@
   <!-- *** Laser Sensor Tobi    *** -->
   <!-- **************************** -->
   
-  <xacro:include filename="/homes/dsixt/robocup/tobi_robot/tobi_description/urdf/tobi_laser_nav.urdf.xacro" />   <!-- $(find tobi_description) -->
+  <xacro:include filename="$(find tobi_description)/urdf/tobi_laser_nav.urdf.xacro" /> 
 
   <!-- **************************** -->
   <!-- *** Neuronics Katana Arm *** -->
