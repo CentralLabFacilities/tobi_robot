@@ -1,0 +1,14 @@
+<launch>
+
+    <arg name="map" />
+
+    <!-- Run the map server -->
+    <node name="map_server" respawn="true" pkg="map_server" type="map_server" args="$(arg map).yaml"/>
+
+    <!--- Run AMCL -->
+    <include file="$(find tobi_navigation)/launch/amcl.launch">
+        <arg name="topic_scan" value="scan_merged" />
+    </include>
+
+   
+</launch>
