@@ -1,6 +1,7 @@
 <launch>
 
     <arg name="map" />
+    <arg name="world" />    
 
     <param name="/use_sim_time" value="true" />
 
