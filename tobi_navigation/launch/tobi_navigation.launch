@@ -1,7 +1,6 @@
 <launch>
 
     <arg name="map"   />
-    <arg name="world" />
 
     <arg name="use_sim" default="false" />
     <arg name="use_map" default="false" />
