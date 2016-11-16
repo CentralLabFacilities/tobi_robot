@@ -3,6 +3,8 @@
     <arg name="map" />
     <arg name="world" />
 
+    <arg name="world" value="$(env NAVIGATION_WORLD_STAGE)"/>
+
     <param name="/use_sim_time" value="true" />
 
     <!-- Stage -->
