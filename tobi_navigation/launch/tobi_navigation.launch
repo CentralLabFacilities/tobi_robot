@@ -1,6 +1,7 @@
 <launch>
 
     <arg name="map"   />
+    <arg name="world" value="$(env NAVIGATION_WORLD_STAGE)"/>
 
     <arg name="use_sim" default="false" />
     <arg name="use_map" default="false" />
