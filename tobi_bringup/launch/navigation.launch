@@ -8,7 +8,6 @@
 
     <include file="$(find tobi_navigation)/launch/tobi_navigation_$(arg part_sim)_$(arg part_map).launch">
         <arg if="$(env NAVIGATION_USE_MAP)" name="map"   value="$(env NAVIGATION_MAP)" />
-        <arg if="$(env NAVIGATION_USE_SIM)" name="world" value="$(env NAVIGATION_WORLD)" />
     </include>
 
 </launch>
