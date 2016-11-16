@@ -1,7 +1,6 @@
 <launch>
 
     <arg name="map"   />
-    <arg name="world" value="$(env NAVIGATION_WORLD_STAGE)"/>
 
     <arg name="use_sim" default="false" />
     <arg name="use_map" default="false" />
@@ -14,7 +13,6 @@
 
     <include file="$(find tobi_navigation)/launch/tobi_navigation_$(arg part_sim)_$(arg part_map).launch">
         <arg if="$(arg use_map)" name="map"   value="$(arg map)" />
-        <arg if="$(arg use_sim)" name="world" value="$(arg world)" />
     </include>
 
 </launch>
