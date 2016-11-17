@@ -9,10 +9,12 @@
     <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 1 base_laser_link laser_front 100" />
 
 
+
     <!-- MORSE REMAPPING -->
-    <node pkg="tf" type="static_transform_publisher" name="link0_broadcaster" args="0 0 0 0 0 0 1 base_footprint base_link 100" />
+   <!-- <node pkg="tf" type="static_transform_publisher" name="link0_broadcaster" args="0 0 0 0 0 0 1 base_footprint base_link 100" />
     <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 1 base_link base_laser_link 100" />
-    <node pkg="tf" type="static_transform_publisher" name="link2_broadcaster" args="0 0 0 0 0 0 1 base_laser_link laser_front 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link2_broadcaster" args="0 0 0 0 0 0 1 base_laser_link laser_front 100" /> -->
+
 
     <!-- provide laser scans on the same topic as on the real robot -->
     <node pkg="topic_tools" type="relay" name="base_scan_relay" args="/scan /scan_merged" />
