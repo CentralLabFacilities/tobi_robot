@@ -12,12 +12,12 @@ scan_filter_chain:
     lower_threshold: 0.3
     upper_threshold: .inf
 - name: specific_angle_filter1
-  type: LaserScanAngularBoundsFilter
+  type: laser_filters/LaserScanAngularBoundsFilterInPlace
   params:
     lower_angle: -1.50
     upper_angle: -1.30
 - name: specific_angle_filter2
-  type: LaserScanAngularBoundsFilter
+  type: laser_filters/LaserScanAngularBoundsFilterInPlace
   params:
     lower_angle: 1.30
     upper_angle: 1.50
