@@ -1,18 +1,5 @@
 <launch>
 
-    <arg name="map" />
-
-    <!-- Run config for p2os -->
-    <include file="$(find tobi_navigation)/launch/tobi_config.launch" />
-
-    <!-- Run the map server -->
-    <node name="map_server" respawn="true" pkg="map_server" type="map_server" args="$(arg map).yaml"/>
-
-    <!--- Run AMCL -->
-    <include file="$(find tobi_navigation)/launch/amcl.launch">
-        <arg name="topic_scan" value="scan_merged" />
-    </include>
-
     <!-- Run move_base -->
     <node pkg="move_base" type="move_base" respawn="true" name="move_base" output="screen">
         <rosparam file="$(find tobi_navigation)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
@@ -22,4 +9,14 @@
         <rosparam file="$(find tobi_navigation)/config/base_local_planner_params.yaml" command="load" />
         <rosparam file="$(find tobi_navigation)/config/move_base_params.yaml" command="load" />
     </node>
+
+    <arg name="map"   />
+    <arg name="use_map" default="false" />
+
+    <arg     if="$(arg use_map)" name="part_map" value="map" />
+    <arg unless="$(arg use_map)" name="part_map" value="nomap" />
+
+    <include file="$(find tobi_navigation)/launch/navigation_$(arg part_map).launch">
+        <arg if="$(arg use_map)" name="map"   value="$(arg map)" />
+    </include>
 </launch>
