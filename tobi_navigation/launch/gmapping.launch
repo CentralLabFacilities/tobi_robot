@@ -1,7 +1,11 @@
 <launch>
-    <arg name="topic_scan" />
+
+    <node pkg="laser_filters" respawn="true" type="leg_to_scan_filter_chain" name="leg_laser_filter">
+        <rosparam command="load" file="$(find tobi_navigation)/config/leg_laser_config_ownfilter.yaml" />
+    </node>
+
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
-        <!--<remap from="/scan" to="$(arg topic_scan)"/>-->
+        <remap from="/scan" to="/scan_no_legs"/>
         <param name="maxUrange" value="8.1"/><!-- scans farther than this will be used for clearing but not for marking -->
         <param name="maxRange" value="9.0"/><!-- scans farther than this will be ignored completely -->
         <param name="sigma" value="0.05"/>
