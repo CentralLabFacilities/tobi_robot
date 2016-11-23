@@ -2,7 +2,6 @@
     
     <!-- Run gmapping -->
     <include file="$(find tobi_navigation)/launch/gmapping.launch" >
-        <arg name="topic_scan" value="scan_merged" />
     </include>
 
 </launch>
