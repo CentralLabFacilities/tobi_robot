@@ -1,6 +1,6 @@
 <launch>
 
-    <node pkg="laser_filters" respawn="true" type="leg_to_scan_filter_chain" name="leg_laser_filter">
+    <node pkg="laser_filters" respawn="true" type="legs_to_scan_filter_chain" name="leg_laser_filter">
         <rosparam command="load" file="$(find tobi_navigation)/config/leg_laser_config_ownfilter.yaml" />
     </node>
 
