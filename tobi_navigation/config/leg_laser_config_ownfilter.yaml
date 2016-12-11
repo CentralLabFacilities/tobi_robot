@@ -2,12 +2,4 @@ scan_filter_chain:
 - name: leg
   type: laser_filters/LaserScanLegFilter
   params:
-    angle_range: 5
-    dist_range: 10
-- name: shadows
-  type: laser_filters/ScanShadowsFilter
-  params:
-    min_angle: 0
-    max_angle: 170
-    neighbors: 0
-    window: 1
+    dist_range: 0.5

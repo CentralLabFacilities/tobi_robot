@@ -48,6 +48,13 @@
         <param name="tf_message_filter_target_frame" type="string" value="laser_front" />
     </node>
 
+    <node pkg="laser_filters" respawn="true" type="scan_to_scan_filter_chain" name="max_laser_filter">
+        <remap from="scan_filtered" to="scan_max"/>
+        <!-- <remap from="scan" to="scan_filtered"/> -->
+        <rosparam command="load" file="$(find tobi_navigation)/config/max_laser_config_ownfilter.yaml" />
+        <param name="tf_message_filter_target_frame" type="string" value="laser_front" />
+    </node>
+
     <!-- laser merger -->
     <node pkg="ira_laser_tools" respawn="true" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen">
         <param name="destination_frame" value="/laser_virtual"/>
