@@ -1,7 +1,7 @@
 <launch>
 
     <node pkg="laser_filters" respawn="true" type="legs_to_scan_filter_chain" name="leg_laser_filter">
-        <remap from="/scan_merged" to="/scan_filtered"/>
+        <!--<remap from="/scan_merged" to="/scan_filtered"/>-->
         <rosparam command="load" file="$(find tobi_navigation)/config/leg_laser_config_ownfilter.yaml" />
     </node>
 
