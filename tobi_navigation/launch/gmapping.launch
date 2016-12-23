@@ -1,7 +1,8 @@
 <launch>
 
+    <!-- This laser filter is setting scans to max range  at positions where persons were detected. This avoids gmapping putting wall points where legs are which are hard to correct and make following very difficult -->
     <node pkg="laser_filters" respawn="true" type="legs_to_scan_filter_chain" name="leg_laser_filter">
-        <!--<remap from="/scan_merged" to="/scan_filtered"/>-->
+        <!--<remap from="/scan_merged" to="/scan_filtered"/> right now this only works on scan_merged. If you want to filter scan_filtered it wont work due to the angle increments going in opposite directions-->
         <rosparam command="load" file="$(find tobi_navigation)/config/leg_laser_config_ownfilter.yaml" />
     </node>
 
