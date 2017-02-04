@@ -39,3 +39,8 @@ Makefile
 # General
 *~
 .project
+
+# IDE Stuff
+.kdev4/
+tobi_robot.kdev4
+
