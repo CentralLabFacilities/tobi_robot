@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-  <param name="/xtion/driver/data_skip" value="1" />
+  <param name="/xtion/driver/data_skip" value="5" />
   <include file="$(find openni_launch)/launch/openni.launch">
     <arg name="camera" value="xtion" />
     <arg name="publish_tf" value="true" />
