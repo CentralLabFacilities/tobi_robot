@@ -2,7 +2,6 @@ local_costmap:
   global_frame: /map
   robot_base_frame: /base_link
   observation_sources: laser_scan_sensor point_cloud_sensor0 point_cloud_sensor1
-  laser_scan_sensor: {sensor_frame: laser_front, data_type: LaserScan, topic: /scan_max, marking: true, clearing: true, expected_update_rate: 0.2}
   static_map: false
   rolling_window: true
   width: 3.0
