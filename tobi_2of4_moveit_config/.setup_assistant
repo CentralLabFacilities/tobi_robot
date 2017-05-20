@@ -5,4 +5,6 @@ moveit_setup_assistant_config:
   SRDF:
     relative_path: config/tobi_2of4.srdf
   CONFIG:
-    generated_timestamp: 1430840612
+    author_name: Johannes Kummert
+    author_email: jkummert@techfak.uni-bielefeld.de
+    generated_timestamp: 1495317753
