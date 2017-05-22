@@ -1,0 +1,56 @@
+<launch>
+    <param name="/use_sim_time" value="true" />
+    <!-- static transform -->
+    <arg name="pi" value="3.14159265"/>
+    <node pkg="tf" type="static_transform_publisher" name="base_link"              args="0.0    0.0  0.0    0.0  0.0       0.0       base_footprint base_link 100" />
+    <node pkg="tf" type="static_transform_publisher" name="laser_virtual"          args="0.0    0.0  0.1397 0.0  0.0       0.0       base_link laser_virtual 100" />
+    <node pkg="tf" type="static_transform_publisher" name="base_laser_link"        args="0.0    0.0  0.1397 0.0  0.0       0.0       base_link base_laser_link 100" />
+    <node pkg="tf" type="static_transform_publisher" name="laser_front"            args="0.0    0.0  0.0    0.0  0.0       0.0       base_laser_link laser_front 100" />
+    <node pkg="tf" type="static_transform_publisher" name="laser_rear"             args="-0.290 0.0  0.0    0.0  $(arg pi) 0.0       base_laser_link laser_rear 100" />
+    <node pkg="tf" type="static_transform_publisher" name="xtion_link_TODO"        args="0.0    0.0  0.0    0.0  0.0       0.0       base_link xtion_link 100" />
+    <node pkg="tf" type="static_transform_publisher" name="xtion_rgb_frame_TODO"   args="0.0    0.0  0.0    0.0  0.0       0.0       xtion_link xtion_rgb_frame 100" />
+    <node pkg="tf" type="static_transform_publisher" name="xtion_depth_frame_TODO" args="0.0    0.0  0.0    0.0  0.0       0.0       xtion_link xtion_depth_frame 100" />
+
+
+    <node pkg="laser_filters" respawn="true" type="scan_to_scan_filter_chain" name="laser_filter">
+        <rosparam command="load" file="$(find tobi_navigation)/config/laser_config_ownfilter.yaml" />
+        <param name="tf_message_filter_target_frame" type="string" value="laser_front" />
+    </node>
+
+    <node pkg="laser_filters" respawn="true" type="scan_to_scan_filter_chain" name="max_laser_filter">
+        <remap from="scan_filtered" to="scan_max"/>
+        <remap from="scan" to="scan_filtered"/>
+        <rosparam command="load" file="$(find tobi_navigation)/config/max_laser_config_ownfilter.yaml" />
+        <param name="tf_message_filter_target_frame" type="string" value="laser_front" />
+    </node>
+
+    <!-- laser merger -->
+    <node pkg="ira_laser_tools" respawn="true" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen">
+        <param name="destination_frame" value="/laser_virtual"/>
+        <param name="cloud_destination_topic" value="/cloud_merged"/>
+        <param name="scan_destination_topic" value="/scan_merged"/>
+        <param name="laserscan_topics" value ="/scan_filtered /scan_rear" />
+        <param name="angle_min" type="double" value="-3.14" /> <!-- angle in rad -->
+        <param name="angle_max" type="double" value="3.14" /> <!-- angle in rad -->
+        <param name="angle_increment" type="double" value="0.00873" /> <!-- angle in rad. 0.00873rad=0.5degree -->
+        <param name="time_increment" type="double" value="0.0" /> <!-- Time increment of the output scan -->
+        <param name="scan_time" type="double" value="0.033333333" /> <!-- Scan time of the output scan -->
+        <param name="range_min" type="double" value="0.1" /> <!-- Range min of the output scan -->
+        <param name="range_max" type="double" value="10.0" /> <!-- Range max of the output scan. This must be greater than gmapping.maxRange! Because this value will be set for invalid readings.  -->
+    </node>
+
+
+    <include file="$(find openni2_launch)/launch/openni2.launch">
+	    <arg name="camera" value="xtion" />
+            <arg name="rgb_frame_id"   default="xtion_rgb_optical_frame" />
+            <arg name="depth_frame_id" default="xtion_depth_optical_frame" />
+	    <arg name="publish_tf" value="false" />
+            <arg name="load_driver" default="false" />
+	    <arg name="depth_registration" value="false" />
+	    <arg name="rgb_camera_info_url" value="file://$(find tobi_bringup)/config/rgb.yaml" />
+	    <arg name="depth_camera_info_url" value="file://$(find tobi_bringup)/config/depth.yaml" />
+    </include>
+
+    <node pkg="topic_tools" type="relay" name="cam_info" args="/xtion/depth/camera_info /xtion/depth_registered/camera_info"/> 
+
+</launch>
