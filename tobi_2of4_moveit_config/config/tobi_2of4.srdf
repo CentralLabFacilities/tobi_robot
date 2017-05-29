@@ -130,12 +130,20 @@
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="virtualjoint0" type="fixed" parent_frame="base_link" child_link="guiabot" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="box_head_link" link2="guiabot" reason="Adjacent" />
+    <disable_collisions link1="box_head_link" link2="katana_base_link" reason="Never" />
+    <disable_collisions link1="box_head_link" link2="katana_motor1_pan_link" reason="Never" />
+    <disable_collisions link1="box_head_link" link2="katana_motor3_lift_link" reason="Default" />
+    <disable_collisions link1="box_head_link" link2="sensor_head_link" reason="Adjacent" />
     <disable_collisions link1="guiabot" link2="katana_base_link" reason="Adjacent" />
     <disable_collisions link1="guiabot" link2="katana_motor1_pan_link" reason="Never" />
+    <disable_collisions link1="guiabot" link2="katana_motor2_lift_link" reason="Never" />
     <disable_collisions link1="guiabot" link2="katana_motor3_lift_link" reason="Default" />
+    <disable_collisions link1="guiabot" link2="sensor_head_link" reason="Never" />
     <disable_collisions link1="katana_base_link" link2="katana_motor1_pan_link" reason="Adjacent" />
-    <disable_collisions link1="katana_base_link" link2="katana_motor2_lift_link" reason="Never" />
+    <disable_collisions link1="katana_base_link" link2="katana_motor2_lift_link" reason="Default" />
     <disable_collisions link1="katana_base_link" link2="katana_motor3_lift_link" reason="Never" />
+    <disable_collisions link1="katana_base_link" link2="sensor_head_link" reason="Never" />
     <disable_collisions link1="katana_gripper_link" link2="katana_gripper_tool_agni_frame" reason="Never" />
     <disable_collisions link1="katana_gripper_link" link2="katana_gripper_tool_frame" reason="Never" />
     <disable_collisions link1="katana_gripper_link" link2="katana_l_finger_link" reason="Adjacent" />
@@ -143,7 +151,7 @@
     <disable_collisions link1="katana_gripper_link" link2="katana_motor4_lift_link" reason="Never" />
     <disable_collisions link1="katana_gripper_link" link2="katana_motor5_wrist_roll_link" reason="Adjacent" />
     <disable_collisions link1="katana_gripper_link" link2="katana_r_finger_link" reason="Adjacent" />
-    <disable_collisions link1="katana_gripper_tool_agni_frame" link2="katana_gripper_tool_frame" reason="Adjacent" />
+    <disable_collisions link1="katana_gripper_tool_agni_frame" link2="katana_gripper_tool_frame" reason="Default" />
     <disable_collisions link1="katana_gripper_tool_agni_frame" link2="katana_l_finger_link" reason="Never" />
     <disable_collisions link1="katana_gripper_tool_agni_frame" link2="katana_motor3_lift_link" reason="Never" />
     <disable_collisions link1="katana_gripper_tool_agni_frame" link2="katana_motor4_lift_link" reason="Never" />
@@ -157,13 +165,15 @@
     <disable_collisions link1="katana_l_finger_link" link2="katana_motor3_lift_link" reason="Never" />
     <disable_collisions link1="katana_l_finger_link" link2="katana_motor4_lift_link" reason="Never" />
     <disable_collisions link1="katana_l_finger_link" link2="katana_motor5_wrist_roll_link" reason="Never" />
-    <disable_collisions link1="katana_l_finger_link" link2="katana_r_finger_link" reason="Default" />
     <disable_collisions link1="katana_motor1_pan_link" link2="katana_motor2_lift_link" reason="Adjacent" />
     <disable_collisions link1="katana_motor1_pan_link" link2="katana_motor3_lift_link" reason="Never" />
+    <disable_collisions link1="katana_motor1_pan_link" link2="sensor_head_link" reason="Never" />
     <disable_collisions link1="katana_motor2_lift_link" link2="katana_motor3_lift_link" reason="Adjacent" />
+    <disable_collisions link1="katana_motor2_lift_link" link2="sensor_head_link" reason="Never" />
     <disable_collisions link1="katana_motor3_lift_link" link2="katana_motor4_lift_link" reason="Adjacent" />
     <disable_collisions link1="katana_motor3_lift_link" link2="katana_motor5_wrist_roll_link" reason="Never" />
     <disable_collisions link1="katana_motor3_lift_link" link2="katana_r_finger_link" reason="Never" />
+    <disable_collisions link1="katana_motor3_lift_link" link2="sensor_head_link" reason="Never" />
     <disable_collisions link1="katana_motor4_lift_link" link2="katana_motor5_wrist_roll_link" reason="Adjacent" />
     <disable_collisions link1="katana_motor4_lift_link" link2="katana_r_finger_link" reason="Never" />
     <disable_collisions link1="katana_motor5_wrist_roll_link" link2="katana_r_finger_link" reason="Never" />
