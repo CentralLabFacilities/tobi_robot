@@ -184,4 +184,5 @@
     <disable_collisions link1="katana_motor4_lift_link" link2="katana_motor5_wrist_roll_link" reason="Adjacent" />
     <disable_collisions link1="katana_motor4_lift_link" link2="katana_r_finger_link" reason="Never" />
     <disable_collisions link1="katana_motor5_wrist_roll_link" link2="katana_r_finger_link" reason="Never" />
+    <disable_collisions link1="katana_l_finger_link" link2="katana_r_finger_link" reason="Never" />
 </robot>
