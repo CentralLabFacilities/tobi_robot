@@ -5,4 +5,6 @@ moveit_setup_assistant_config:
   SRDF:
     relative_path: config/tobi_3of4.srdf
   CONFIG:
-    generated_timestamp: 1430840612
+    author_name: saschroeder
+    author_email: saschroeder@techfak.uni-bielefeld.de
+    generated_timestamp: 1496156225
