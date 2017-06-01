@@ -7,4 +7,4 @@ moveit_setup_assistant_config:
   CONFIG:
     author_name: Johannes Kummert
     author_email: jkummert@techfak.uni-bielefeld.de
-    generated_timestamp: 1496169281
+    generated_timestamp: 1496323464
