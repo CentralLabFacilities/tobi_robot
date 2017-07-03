@@ -13,8 +13,8 @@
   <!--node pkg="nodelet" type="nodelet" respawn="true" name="pcl_manager" args="manager" output="screen" /-->
 
   <!-- Run a VoxelGrid filter to clean NaNs and downsample the data -->
-  <node pkg="nodelet" type="nodelet" respawn="true" name="voxel_grid" args="load pcl/VoxelGrid /xtion/xtion_nodelet_manager" output="screen">
-    <remap from="~input" to="/xtion/depth/points" />
+  <node pkg="nodelet" type="nodelet" respawn="true" name="voxel_grid_upper" args="load pcl/VoxelGrid /xtion/xtion_nodelet_manager" output="screen">
+    <remap from="~input" to="/xtionupper/depth/points" />
     <rosparam>
       filter_field_name: z
       filter_limit_min: 0.3
