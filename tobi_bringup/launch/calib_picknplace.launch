@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="use_sim" default="false" />
+
+  <include file="$(find tobi_picknplace)/launch/calib_tobi_picknplace_server.launch">
+    <arg name="transitions" value="$(find tobi_bringup)/config/picknplace_transitions.cfg" />
+    <arg name="use_sim" value="$(arg use_sim)" />
+    <!--arg name="gripperPositionClosed" value="-0.55" />
+    <arg name="graspThroughDistance" value="0.01" /-->
+    <arg name="model" value="katana" />
+    <arg name="groupArm" value="left_arm" />
+    <arg name="groupEe" value="left_hand" />
+    <arg name="frameGripper" value="katana_gripper_tool_agni_frame" />
+    <arg name="robot" value="tobi" />
+ </include>
+</launch>
