@@ -16,7 +16,7 @@
     <arg name="fake_execution" value="false"/>
     <arg name="info" value="$(arg info)"/>
     <arg name="debug" value="$(arg debug)"/>
-    <arg name="augmented" value="$(arg aumgented)"/>
+    <arg name="augmented" value="$(arg augmented)"/>
   </include>
 
 </launch>
