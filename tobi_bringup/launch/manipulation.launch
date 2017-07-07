@@ -10,6 +10,7 @@
   <include file="$(find tobi_bringup)/launch/move_group_$(env TOBI_ID).launch">
     <arg name="info" value="$(arg info)"/>
     <arg name="debug" value="$(arg debug)"/>
+    <arg name="augmented" value="$(arg augmented)"/>
   </include>
 
 </launch>
