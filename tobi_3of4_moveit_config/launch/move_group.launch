@@ -2,6 +2,9 @@
 
   <include file="$(find tobi_3of4_moveit_config)/launch/planning_context.launch" />
 
+  <!-- augmented pnp usage -->
+  <arg name="augmented" default="false" />
+
   <!-- GDB Debug Option -->
   <arg name="debug" default="false" />
   <arg unless="$(arg debug)" name="launch_prefix" value="" />

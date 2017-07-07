@@ -4,6 +4,9 @@
   <arg name="debug" default="false" />
   <arg name="info" default="$(arg debug)" />
 
+  <!-- augmented pnp usage -->
+  <arg name="augmented" default="false" />
+
   <!-- controllers -->
   <include file="$(find tobi_2of4_moveit_config)/launch/tobi_moveit_controller_manager.launch.xml">
   </include>
