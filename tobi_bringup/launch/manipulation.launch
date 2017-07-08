@@ -6,11 +6,15 @@
   <arg name="augmented" default="false"/>
   <!--env name="ROSCONSOLE_CONFIG_FILE" value="~/rosconsole.conf"/-->
 
+  <!-- to switch to trac_ik instead of ik_fast -->
+  <arg name="use_trac_ik" default="false"/>
+
   <!-- move_group -->
   <include file="$(find tobi_bringup)/launch/move_group_$(env TOBI_ID).launch">
     <arg name="info" value="$(arg info)"/>
     <arg name="debug" value="$(arg debug)"/>
     <arg name="augmented" value="$(arg augmented)"/>
+    <arg name="use_trac_ik" value="$(arg use_trac_ik)"/>
   </include>
 
 </launch>
