@@ -5,6 +5,9 @@
   <!-- The name of the parameter under which the URDF is loaded -->
   <arg name="robot_description" default="robot_description"/>
 
+  <!-- to switch to trac_ik instead of ik_fast -->
+  <arg name="use_trac_ik" default="false"/>
+
   <!-- Load universal robot description format (URDF) -->
   <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="$(find xacro)/xacro.py '$(find tobi_description)/urdf/tobi_2of4.urdf.xacro'"/>
 
@@ -18,7 +21,12 @@
 
   <!-- Load default settings for kinematics; these settings are overridden by settings in a node's namespace -->
   <group ns="$(arg robot_description)_kinematics">
-    <rosparam command="load" file="$(find tobi_2of4_moveit_config)/config/kinematics.yaml"/>
+    <group if="$(arg use_trac_ik)">
+      <rosparam command="load" file="$(find tobi_2of4_moveit_config)/config/kinematics_tracik.yaml"/>
+    </group>
+    <group unless="$(arg use_trac_ik)">
+      <rosparam command="load" file="$(find tobi_2of4_moveit_config)/config/kinematics_ikfast.yaml"/>
+    </group>
   </group>
   
 </launch>
