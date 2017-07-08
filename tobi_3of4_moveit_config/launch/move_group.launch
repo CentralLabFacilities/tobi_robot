@@ -71,7 +71,7 @@
     				      move_group/MoveGroupGetPlanningSceneService
     				      move_group/ClearOctomapService
   				      " />
-      <param if="$(arg augmented)" name="disable_capabilities" value="move_group/MoveGroupPickPlaceAction" />
+      <!--param if="$(arg augmented)" name="disable_capabilities" value="move_group/MoveGroupPickPlaceAction" /-->
 
 
 
