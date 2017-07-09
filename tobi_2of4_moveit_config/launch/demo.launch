@@ -12,6 +12,7 @@
   <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
   <include file="$(find tobi_2of4_moveit_config)/launch/planning_context.launch">
     <arg name="load_robot_description" value="true"/>
+    <arg name="use_trac_ik" value="$(arg use_trac_ik)"/>
   </include>
 
   <!-- If needed, broadcast static tf for robot root -->
@@ -39,6 +40,7 @@
   <include file="$(find tobi_2of4_moveit_config)/launch/moveit_rviz.launch">
     <arg name="config" value="true"/>
     <arg name="debug" value="$(arg debug)"/>
+    <arg name="use_trac_ik" value="$(arg use_trac_ik)"/>
   </include>
 
   <!-- If database loading was enabled, start mongodb as well -->

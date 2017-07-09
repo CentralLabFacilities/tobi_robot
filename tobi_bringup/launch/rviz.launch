@@ -6,9 +6,13 @@
 	<arg name="config_nav" default="false" />
 	<env name="ROSCONSOLE_CONFIG_FILE" value="~/rosconsole.conf"/>
 
+	<!-- to switch to trac_ik instead of ik_fast -->
+    <arg name="use_trac_ik" default="false"/>
+
 	<include file="$(find tobi_bringup)/launch/rviz_$(env TOBI_ID).launch">
 		<arg name="config_arm" value="$(arg config_arm)"/>
 		<arg name="config_nav" value="$(arg config_nav)"/>
+		<arg name="use_trac_ik" value="$(arg use_trac_ik)"/>
  	 </include>
 
 </launch>
