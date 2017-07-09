@@ -1,0 +1,24 @@
+<Postures robot="left_hand" xmlns:dbxml="http://www.sleepycat.com/2002/dbxml">
+  <group name="katana_precision_posture">
+    <joint_names>katana_r_finger_joint, katana_l_finger_joint</joint_names>
+    <group name="final">
+      <posture time_from_start="3.0" units="rad">-0.41, -0.41</posture> 
+    </group>
+    <group  name="pre">
+      <posture time_from_start="3.0" units="rad">0.29 , 0.29</posture>
+    </group>
+    <center name="pos" units="cm">0, 0, 6.0</center>
+    <center name="euler" units="deg">0, 0, 0</center>
+  </group>
+ <group name="katana_power_posture">
+    <joint_names>katana_r_finger_joint, katana_l_finger_joint</joint_names>
+    <group name="final">
+      <posture time_from_start="3.0" units="rad">-0.41, -0.41</posture> 
+    </group>
+    <group  name="pre">
+      <posture time_from_start="3.0" units="rad">0.29 , 0.29</posture>
+    </group>
+    <center name="pos" units="cm">0, 0, 5</center>
+    <center name="euler" units="deg">0, 0, 0</center>
+  </group>
+</Postures>
