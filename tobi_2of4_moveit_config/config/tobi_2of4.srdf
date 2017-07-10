@@ -42,8 +42,8 @@
         <joint name="katana_motor5_wrist_roll_joint" value="0" />
     </group_state>
     <group_state name="carry_side" group="left_arm">
-        <joint name="katana_motor1_pan_joint" value="-0.8807" />
-        <joint name="katana_motor2_lift_joint" value="0.3655" />
+        <joint name="katana_motor1_pan_joint" value="-0.9223" />
+        <joint name="katana_motor2_lift_joint" value="0.4263" />
         <joint name="katana_motor3_lift_joint" value="-0.6018" />
         <joint name="katana_motor4_lift_joint" value="0.9953" />
         <joint name="katana_motor5_wrist_roll_joint" value="-2.1602" />
@@ -132,6 +132,12 @@
         <joint name="katana_motor4_lift_joint" value="-0.4837" />
         <joint name="katana_motor5_wrist_roll_joint" value="-1.87" />
     </group_state>
+     <group_state name="open" group="left_hand">
+        <joint name="katana_r_finger_joint" value="0.3"  />
+        <joint name="katana_l_finger_joint" value="0.3"   />
+    </group_state>
+    
+    
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="left_hand" parent_link="katana_gripper_tool_frame" group="left_hand" parent_group="left_arm" />
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->

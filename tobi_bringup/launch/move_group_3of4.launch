@@ -4,6 +4,12 @@
   <arg name="debug" default="false" />
   <arg name="info" default="$(arg debug)" />
 
+  <!-- augmented pnp usage -->
+  <arg name="augmented" default="false" />
+
+  <!-- to switch to trac_ik instead of ik_fast -->
+  <arg name="use_trac_ik" default="false"/>
+
   <!-- controllers -->
   <include file="$(find tobi_3of4_moveit_config)/launch/tobi_moveit_controller_manager.launch.xml">
   </include>
@@ -13,6 +19,8 @@
     <arg name="fake_execution" value="false"/>
     <arg name="info" value="$(arg info)"/>
     <arg name="debug" value="$(arg debug)"/>
+    <arg name="augmented" value="$(arg augmented)"/>
+    <arg name="use_trac_ik" value="$(arg use_trac_ik)"/>
   </include>
 
 </launch>
