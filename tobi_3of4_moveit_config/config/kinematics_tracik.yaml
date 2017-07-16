@@ -1,9 +1,9 @@
 left_arm:
   kinematics_solver: trac_ik_kinematics_plugin/TRAC_IKKinematicsPlugin
   kinematics_solver_timeout: 0.005
-  tolerance_pos: 0.0001
-  tolerance_yaw: 0.0017
+  tolerance_pos: 0.001
+  tolerance_yaw: 0.017
   tolerance_pitch: 0.34
-  tolerance_roll: 0.0017
+  tolerance_roll: 0.017
   # position_only_ik 
   # solve_type
