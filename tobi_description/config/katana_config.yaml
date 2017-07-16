@@ -24,8 +24,8 @@ grasp_gen_config:
       revolution_angle_step: 22.5
       revolution_variation_max: 90
       roll_angle_step: 10.0
-      roll_variation_max: 10.0
-      translation_step: 0.05
+      roll_variation_max: 30.0
+      translation_step: 0.01
       translation_variation_max: 1.0  #in percent of half-height
       allowed_posture_types: ['AllFingerPrecision', 'ThreeFingerPrecision', 'TwoFingerPrecision', 'PowerGrasp']
       allowed_grasp_types: ['SideCylinderGrasp', 'BoxGrasp', 'SphereGrasp']
