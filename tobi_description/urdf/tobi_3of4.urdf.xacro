@@ -15,7 +15,7 @@
     </inertial>
   </xacro:macro>
 
-  <property name="M_PI" value="3.1415926535897931" />
+  <xacro:property name="M_PI" value="3.1415926535897931" />
 
   <xacro:property name="guiabot_length" value="0.59"/>
   <xacro:property name="guiabot_width" value="0.48"/>

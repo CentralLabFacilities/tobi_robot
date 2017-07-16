@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+ <gazebo>
+   <!--plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+     <robotNamespace>/biron</robotNamespace>
+   </plugin-->
+
+    <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
+      <frameName>map</frameName>
+      <bodyName>base_link</bodyName>
+      <topicName>pose_ground_truth</topicName>
+      <updateRate>30.0</updateRate>
+    </plugin>
+   </gazebo>
+   
+
+  <!-- gazebo>
+	    <plugin name="create_controller" filename="libgazebo_ros_create.so">
+	      <alwaysOn>true</alwaysOn>
+	      <node_namespace>biron_node</node_namespace>
+	      <left_wheel_joint>left_wheel_joint</left_wheel_joint>
+	      <right_wheel_joint>right_wheel_joint</right_wheel_joint>
+	      <front_castor_joint>front_castor_joint</front_castor_joint>
+	      <rear_castor_joint>rear_castor_joint</rear_castor_joint>
+	      <wheel_separation>.260</wheel_separation>
+	      <wheel_diameter>0.066</wheel_diameter>
+	      <base_geom>guiabot</base_geom>
+	      <updateRate>40</updateRate>
+	      <torque>1.0</torque>
+	    </plugin>
+	  </gazebo>
+
+
+  <gazebo reference="left_wheel_link">
+      <mu1>1.0</mu1>
+      <mu2>1.0</mu2>
+      <kp>1000000.0</kp>
+      <kd>100.0</kd>
+      <minDepth>0.001</minDepth>
+      <maxVel>1.0</maxVel>
+    </gazebo>
+  
+    <gazebo reference="right_wheel_link">
+      <mu1>1.0</mu1>
+      <mu2>1.0</mu2>
+      <kp>1000000.0</kp>
+      <kd>100.0</kd>
+      <minDepth>0.001</minDepth>
+      <maxVel>1.0</maxVel>
+    </gazebo>
+    <gazebo reference="rear_wheel_link">
+      <mu1>0.0</mu1>
+      <mu2>0.0</mu2>
+      <kp>1000000.0</kp>
+      <kd>100.0</kd>
+      <minDepth>0.001</minDepth>
+      <maxVel>1.0</maxVel>
+    </gazebo>
+  
+    <gazebo reference="front_wheel_link">
+      <mu1>0.0</mu1>
+      <mu2>0.0</mu2>
+      <kp>1000000.0</kp>
+      <kd>100.0</kd>
+      <minDepth>0.001</minDepth>
+      <maxVel>1.0</maxVel>
+    </gazebo-->
+
+
+
+</robot>
