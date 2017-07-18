@@ -6,11 +6,13 @@
   name="tobi">
 
   <!-- Import asus -->
-  <xacro:include filename="$(find tobi_description)/urdf/asus_camera.urdf.xacro" />
+  <xacro:include filename="$(find tobi_description)/urdf/asus_camera.urdf.xacro" />   
   <!-- Import extra base -->
-  <!--xacro:include filename="$(find tobi_description)/urdf/tobi_2of4_kinect_base.urdf.xacro" /-->
+  <xacro:include filename="$(find tobi_description)/urdf/tobi_2of4_kinect_base.urdf.xacro" />  
   <!-- Import gazebo setup -->
-  <xacro:include filename="$(find tobi_description)/urdf/gazebo.urdf.xacro"/>
+  <!-- <xacro:include filename="$(find tobi_description)/urdf/gazebo.urdf.xacro"/>  -->
+  <!-- Import katana arm -->
+  <xacro:include filename="$(find katana_description)/urdf/katana_450_6m180_simple.urdf.xacro" /> 
 
   <xacro:macro name="box_inertial" params="x y z mass">
     <inertial>
@@ -50,18 +52,16 @@
   <!-- **************************** -->
   <!-- *** Neuronics Katana Arm *** -->
   <!-- **************************** -->
-
-  <xacro:include filename="$(find katana_description)/urdf/katana_450_6m180_simple.urdf.xacro" />
-
-  <joint name="tobi_guiabot_katana_joint" type="fixed">
+ 
+   <joint name="tobi_guiabot_katana_joint" type="fixed">
     <parent link="guiabot" />
     <child link="katana_base_link" />
     <origin xyz="0.012 0 0.867" rpy="0 ${-M_PI/2} 0" />
-  </joint>
+  </joint>  
 
   <link name="base_link" />
 
-  <joint name="base_link_to_guiabot" type="fixed">
+  <joint name="base_link_to_urdfguiabot" type="fixed">
     <parent link="base_link" />
     <child link="guiabot" />
     <origin xyz="0 0 0" rpy="0 0 ${M_PI}" />
@@ -91,7 +91,7 @@
         <cylinder radius="0.017" length="0.25"/>
       </geometry>
       <material name="grey" >
-        <color rgba="0.2 0.2 0.2 1" />
+        <color rgba="0.2 0.2 0.2 1"/>
       </material>
     </visual>
     <visual>
@@ -142,14 +142,14 @@
     </collision>
   </link>
 
-  <asus_camera name="xtion" parent="sensor_head_link">
-    <origin xyz="0 0 0" rpy="0 0.6 0"/>
-  </asus_camera>
-
   <joint name="box_head_to_sensor_head" type="fixed">
     <parent link="box_head_link" />
     <child link="sensor_head_link" />
     <origin xyz="0.08 0.02 0.20" rpy="0 0 0" />
   </joint>
+
+   <xacro:asus_camera name="xtion" parent="sensor_head_link">
+    <origin xyz="0 0 0" rpy="0 0.6 0"/>
+  </xacro:asus_camera> 
 
 </robot>
