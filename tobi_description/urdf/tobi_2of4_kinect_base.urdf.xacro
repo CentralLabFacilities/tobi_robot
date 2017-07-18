@@ -1,6 +1,12 @@
 <?xml version="1.0" ?>
 
-<robot>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:property name="caster_radius" value="0.010"/>
+<xacro:property name="caster_seperation" value="0.40"/>
+<xacro:property name="wheel_seperation" value="0.40"/>
+<xacro:property name="wheel_radius" value="0.042"/>
+<xacro:property name="wheel_add_z" value="-0.005"/>
 
 <link name="left_wheel_link">
 	    <inertial>
@@ -13,20 +19,20 @@
 	    <visual>
 	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707" />
 	      <geometry>
-	        <cylinder radius="0.033" length = "0.023"/>
+	        <cylinder radius="${wheel_radius}" length="0.023"/>
 	      </geometry>
 	    </visual>
 	
 	    <collision>
 	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707" />
 	      <geometry>
-	        <cylinder radius="0.033" length = "0.023"/>
+	        <cylinder radius="${wheel_radius}" length="0.023"/>
 	      </geometry>
 	    </collision>
 	  </link>
 	
 	  <joint name="left_wheel_joint" type="continuous">
-	    <origin xyz="0 0.13 0.015" rpy="0 0 0"/>
+	    <origin xyz="0 ${wheel_seperation/2} ${wheel_radius+wheel_add_z}" rpy="0 0 0"/>
 	    <parent link="base_link"/>
 	    <child link="left_wheel_link"/>
 	    <axis xyz="0 1 0"/>
@@ -43,25 +49,26 @@
 	    <visual>
 	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707" />
 	      <geometry>
-	        <cylinder radius="0.033" length = "0.023"/>
+	        <cylinder radius="${wheel_radius}" length="0.023"/>
 	      </geometry>
 	    </visual>
 	
 	    <collision>
 	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707" />
 	      <geometry>
-	        <cylinder radius="0.033" length = "0.023"/>
+	        <cylinder radius="${wheel_radius}" length="0.023"/>
 	      </geometry>
 	    </collision>
 	  </link>
 	
 	  <joint name="right_wheel_joint" type="continuous">
-	    <origin xyz="0 -0.13 0.015" rpy="0 0 0"/>
+	    <origin xyz="0 ${-wheel_seperation/2} ${wheel_radius+wheel_add_z}" rpy="0 0 0"/>
 	    <parent link="base_link"/>
 	    <child link="right_wheel_link"/>
 	    <axis xyz="0 1 0"/>
 	  </joint>
 	
+	<!-- CASTORS -->
 	  <link name="rear_wheel_link">
 	    <inertial>
 	      <origin xyz="0 0 0"/>
@@ -73,20 +80,20 @@
 	    <visual>
 	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
 	      <geometry>
-	        <sphere radius="0.015" />
+	        <sphere radius="${caster_radius}" />
 	      </geometry>
 	    </visual>
 	
 	    <collision>
 	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707" />
 	      <geometry>
-	        <sphere radius="0.015" />
+	        <sphere radius="${caster_radius}" />
 	      </geometry>
 	    </collision>
 	  </link>
 	  <!-- fixed because there's no transmission -->
 	  <joint name="rear_castor_joint" type="fixed">
-	    <origin xyz="-0.13 0 0.0" rpy="0 0 0"/>
+	    <origin xyz="${-caster_seperation/2} 0 ${caster_radius+wheel_add_z}" rpy="0 0 0"/>
 	    <parent link="base_link"/>
 	    <child link="rear_wheel_link"/>
 	    <axis xyz="0 1 0"/>
@@ -103,25 +110,85 @@
 	    <visual>
 	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
 	      <geometry>
-	        <sphere radius="0.018" />
+	        <sphere radius="${caster_radius}" />
 	      </geometry>
 	    </visual>
 	
 	    <collision>
 	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707" />
 	      <geometry>
-	        <sphere radius="0.018" />
+	        <sphere radius="${caster_radius}" />
 	      </geometry>
 	    </collision>
 	  </link>
 	
 	  <!-- fixed because there's no transmission -->
 	  <joint name="front_castor_joint" type="fixed">
-	    <origin xyz="0.13 0 0.0" rpy="0 0 0"/>
+	    <origin xyz="${caster_seperation/2} 0 ${caster_radius+wheel_add_z}" rpy="0 0 0"/>
 	    <parent link="base_link"/>
 	    <child link="front_wheel_link"/>
 	    <axis xyz="0 1 0"/>
 	  </joint>
 
+<!-- Laser links-->
+		<joint name="sick_joint" type="fixed">
+    <axis xyz="0 0 0" />
+    <origin xyz="0.05 0 0.30" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="laser_front"/>
+  </joint>
+
+	<joint name="hokuyo_joint" type="fixed">
+    <axis xyz="0 0 0" />
+    <origin xyz="-0.05 0 0.30" rpy="0 0 ${M_PI}"/>
+    <parent link="base_link"/>
+    <child link="laser_rear"/>
+  </joint>
+
+		<!-- Hokuyo Laser -->
+  <link name="laser_rear">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+	<!-- Hokuyo Laser -->
+  <link name="laser_front">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
 
 </robot>

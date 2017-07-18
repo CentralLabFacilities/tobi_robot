@@ -8,11 +8,11 @@
   <!-- Import asus -->
   <xacro:include filename="$(find tobi_description)/urdf/asus_camera.urdf.xacro" />   
   <!-- Import extra base -->
-  <xacro:include filename="$(find tobi_description)/urdf/tobi_2of4_kinect_base.urdf.xacro" />  
+   <xacro:include filename="$(find tobi_description)/urdf/tobi_2of4_kinect_base.urdf.xacro" />   
   <!-- Import gazebo setup -->
-  <!-- <xacro:include filename="$(find tobi_description)/urdf/gazebo.urdf.xacro"/>  -->
+    <xacro:include filename="$(find tobi_description)/urdf/gazebo.urdf.xacro"/>    
   <!-- Import katana arm -->
-  <xacro:include filename="$(find katana_description)/urdf/katana_450_6m180_simple.urdf.xacro" /> 
+    <xacro:include filename="$(find katana_description)/urdf/katana_450_6m180_simple.urdf.xacro" />   
 
   <xacro:macro name="box_inertial" params="x y z mass">
     <inertial>
@@ -53,11 +53,11 @@
   <!-- *** Neuronics Katana Arm *** -->
   <!-- **************************** -->
  
-   <joint name="tobi_guiabot_katana_joint" type="fixed">
+     <joint name="tobi_guiabot_katana_joint" type="fixed">
     <parent link="guiabot" />
     <child link="katana_base_link" />
     <origin xyz="0.012 0 0.867" rpy="0 ${-M_PI/2} 0" />
-  </joint>  
+  </joint>    
 
   <link name="base_link" />
 
