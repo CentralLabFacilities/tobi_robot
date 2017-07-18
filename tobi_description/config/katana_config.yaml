@@ -15,7 +15,7 @@ grasp_gen_config:
       hand_width: 0.025
       top_clearance: 0.06
       side_clearance: 0.02
-      palm_clearance: 0.015
+      palm_clearance: 0.005
       elbow_to_grip_angle: -90
     preferences: 
       allow_flipped: true
