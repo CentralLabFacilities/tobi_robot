@@ -21,6 +21,41 @@ grasp_gen_config:
       allow_flipped: true
       lying_cyl_as_box: false
       allow_floating_object: true
+      revolution_angle_step: 15
+      revolution_variation_max: 45
+      roll_angle_step: 15.0
+      roll_variation_max: 20.0
+      translation_step: 0.03
+      translation_variation_max: 1.0  #in percent of half-height
+      allowed_posture_types: ['AllFingerPrecision', 'ThreeFingerPrecision', 'TwoFingerPrecision', 'PowerGrasp']
+      allowed_grasp_types: ['SideCylinderGrasp', 'BoxGrasp', 'SphereGrasp']
+      approach_direction: {x: 0.0, y: 0.0, z: 1.0}
+      approach_min_distance: 0.01
+      approach_desired_distance: 0.05
+      lift_min_distance: 0.05
+      lift_desired_distance: 0.09
+  left_hand_last_chance:
+    verbose_level: 1
+    eef_name: left_hand
+    hand_properties:
+      num_fingers: 2
+      elbow_frame: "katana_base_link"
+      grasp_frame_transform:
+        rotation: {x: 0.0, y: 0.707, z: 0.0, w: 0.707}
+        translation: {x: 0.0, y: 0.0, z: 0.0}
+        # use the actual tool_frame not the wrist link translation: {x: 0.043, y: 0.0, z: 0.0}
+      handedness: 1.0
+      controlled_joints: ['katana_r_finger_joint', 'katana_l_finger_joint']
+      max_grasp_opening: 0.08
+      hand_width: 0.025
+      top_clearance: 0.06
+      side_clearance: 0.02
+      palm_clearance: 0.005
+      elbow_to_grip_angle: -90
+    preferences: 
+      allow_flipped: true
+      lying_cyl_as_box: false
+      allow_floating_object: true
       revolution_angle_step: 22.5
       revolution_variation_max: 90
       roll_angle_step: 10.0
