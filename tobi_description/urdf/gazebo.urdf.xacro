@@ -17,7 +17,7 @@
       <wheelDiameter>0.086</wheelDiameter>
       <torque>20</torque>
       <commandTopic>cmd_vel</commandTopic>
-      <odometryTopic>odom</odometryTopic>
+      <odometryTopic>map</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <robotBaseFrame>base_link</robotBaseFrame> 
       <publishWheelTF>true</publishWheelTF>
