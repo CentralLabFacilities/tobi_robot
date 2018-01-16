@@ -117,17 +117,17 @@
     
     <!-- Leg Detector -->
     <group if="$(arg with_map_filter)">
-        <node pkg="laser_filters" type="scan_to_scan_filter_chain" respawn="true" name="l$
+        <node pkg="laser_filters" type="scan_to_scan_filter_chain" respawn="true" name="laser_filter">
             <!--rosparam command="load" file="$(find map_laser)/filters.yaml" /-->
 
         </node>
-        <!--node pkg="map_laser" type="filter.py" name="map_laser_filter" respawn="true" $
-        <node pkg="leg_detector" type="leg_detector" name="leg_detector" args="scan:=/bas$
+        <!--node pkg="map_laser" type="filter.py" name="map_laser_filter" respawn="true" output="screen"/-->
+        <node pkg="leg_detector" type="leg_detector" name="leg_detector" args="scan:=/base_scan_filter $(find leg_detector)/config/bigDataSet_Tree.yaml" respawn="true" output="screen">
             <param name="fixed_frame" type="string" value="odom" />
         </node>
     </group>
     <group unless="$(arg with_map_filter)">
-        <node pkg="leg_detector" type="leg_detector" name="leg_detector" args="scan:=$(ar$
+        <node pkg="leg_detector" type="leg_detector" name="leg_detector" args="scan:=$(arg scan) $(find leg_detector)/config/bigDataSet_Tree.yaml" respawn="true" output="screen">
             <param name="fixed_frame" type="string" value="odom" />
             <param name="connection_threshold" type="double" value="0.1" />
             <param name="leg_reliability_limit" type="double" value="0.7" />
